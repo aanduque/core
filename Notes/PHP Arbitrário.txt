@@ -1,0 +1,71 @@
+# PHP Arbitrário
+Código para rodar um node ou action com php arbitrário, usando o blade
+
+```php
+<?php
+
+namespace Ultimo\Workflows\Actions;
+
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Support\Facades\Blade;
+use Lorisleiva\Actions\Concerns\AsAction;
+use Lorisleiva\Actions\Concerns\AsJob;
+use Ultimo\Workflows\WorkflowData;
+use Ultimo\Workflows\WorkflowInput;
+
+class RunPHPAction
+{
+    use AsAction, AsJob;
+
+    public function capture(\Closure $callback)
+    {
+        ob_start();
+        $value = $callback();
+        $output = ob_get_clean();
+
+        return [$value, $output];
+    }
+
+    public function __construct(
+        protected Application $container,
+    ) {
+
+    }
+
+    public function handle(WorkflowInput $input, WorkflowData $data)
+    {
+        $code = $input->getRaw('code');
+
+        /**
+         * Remove the opening <?php tag if it exists.
+         */
+        $code = trim(str_replace('<?php', '', $code));
+
+        $code = '@php
+
+            ob_start();
+
+            $scopedCode = function() use ($data, $container, $helper, $input) {
+                '.$code.'
+            };
+
+            echo json_encode($helper->capture($scopedCode));
+        @endphp';
+
+        $compiled = Blade::render($code, [
+            'data' => $data,
+            'input' => $input,
+            'helper' => $this,
+            'container' => $this->container,
+        ]);
+
+        [$results, $output] = json_decode($compiled) ?? [[], ''];
+
+        if ($output) {
+            echo $output;
+        }
+
+        return $results;
+    }
+}
+```

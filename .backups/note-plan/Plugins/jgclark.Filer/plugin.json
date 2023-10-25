@@ -1,0 +1,308 @@
+{
+  "noteplan.minAppVersion": "3.5.2",
+  "macOS.minVersion": "10.13.0",
+  "plugin.id": "jgclark.Filer",
+  "plugin.name": "📦 Filer",
+  "plugin.description": "Help file (move) the current paragraph, selected paragraphs, or heading and its section, to different notes. Please see details for more, err, details.",
+  "plugin.icon": "",
+  "plugin.author": "jgclark",
+  "plugin.url": "https://github.com/NotePlan/plugins/tree/main/jgclark.Filer",
+  "plugin.changelog": "https://github.com/NotePlan/plugins/blob/main/jgclark.Filer/CHANGELOG.md",
+  "plugin.version": "1.1.4",
+  "plugin.lastUpdateInfo": "1.1.4: try to fix a race condition in /add sync'd copy to note. Fix to /move note link.\n1.1.2: updating to newer libraries.\n1.1.1: new create folder option.\n1.1.0: new /archive command. 1.1.0: new '/... note links...' commands.",
+  "plugin.dependencies": [],
+  "plugin.script": "script.js",
+  "plugin.isRemote": "false",
+  "plugin.commands": [
+    {
+      "name": "add sync'd copy to note",
+      "alias": [
+        "asc",
+        "sync",
+        "lines"
+      ],
+      "description": "Add a sync'd copy of the current line to a section in another note",
+      "jsFunction": "addIDAndAddToOtherNote"
+    },
+    {
+      "name": "archive note keeping folder structure",
+      "alias": [
+        "an",
+        "archive"
+      ],
+      "description": "Move the current note to NotePlan's Archive, but keep the same folder structure for it inside the special @Archive folder",
+      "jsFunction": "archiveNoteUsingFolder"
+    },
+    {
+      "name": "copy note links",
+      "alias": [
+        "cnl",
+        "link",
+        "wikilink",
+        "file"
+      ],
+      "description": "copies [[note link]] lines or blocks from the open calendar note to their respective project notes",
+      "jsFunction": "copyNoteLinks"
+    },
+    {
+      "name": "copy note links (recently changed)",
+      "alias": [
+        "cnlrc",
+        "link",
+        "wikilink",
+        "file"
+      ],
+      "description": "copies [[note link]] lines or blocks from recently-changed calendar notes to their respective project notes",
+      "jsFunction": "copyRecentNoteLinks",
+      "arguments": [
+        "JSON-formatted parameter list"
+      ]
+    },
+    {
+      "name": "move note links",
+      "alias": [
+        "mnl",
+        "link",
+        "wikilink",
+        "file"
+      ],
+      "description": "moves [[note link]] lines or blocks from the open calendar note to their respective project notes",
+      "jsFunction": "moveNoteLinks"
+    },
+    {
+      "name": "move note links (recently changed)",
+      "alias": [
+        "mnlrc",
+        "link",
+        "wikilink",
+        "file"
+      ],
+      "description": "moves [[note link]] lines or blocks from recently-changed calendar notes to their respective project notes",
+      "jsFunction": "moveRecentNoteLinks",
+      "arguments": [
+        "JSON-formatted parameter list"
+      ]
+    },
+    {
+      "name": "move paragraph or selection",
+      "alias": [
+        "mp",
+        "file"
+      ],
+      "description": "moves this paragraph (or selected paragraphs) to a different note",
+      "jsFunction": "moveParas"
+    },
+    {
+      "name": "move paragraph block",
+      "alias": [
+        "mb",
+        "block"
+      ],
+      "description": "moves all paragraphs in the current block to a different note",
+      "jsFunction": "moveParaBlock"
+    },
+    {
+      "name": "quick move to Today's note",
+      "alias": [
+        "qmtd",
+        "day",
+        "daily"
+      ],
+      "description": "quick move a block of paragraphs to Today's note",
+      "jsFunction": "moveParasToToday"
+    },
+    {
+      "name": "quick move to Tomorrow's note",
+      "alias": [
+        "qmtm",
+        "day",
+        "daily"
+      ],
+      "description": "quick move a block of paragraphs to Tomorrow's daily note",
+      "jsFunction": "moveParasToTomorrow"
+    },
+    {
+      "name": "quick move to Weekly note",
+      "alias": [
+        "qmtw",
+        "week"
+      ],
+      "description": "quick move a block of paragraphs to the current Weekly note",
+      "jsFunction": "moveParasToThisWeekly"
+    },
+    {
+      "name": "quick move to Next Weekly note",
+      "alias": [
+        "qmnw",
+        "week"
+      ],
+      "description": "quick move a block of paragraphs to Next Week's note",
+      "jsFunction": "moveParasToNextWeekly"
+    },
+    {
+      "name": "new note from clipboard",
+      "alias": [
+        "nnc",
+        "new"
+      ],
+      "description": "New note from clipboard",
+      "jsFunction": "newNoteFromClipboard"
+    },
+    {
+      "name": "new note from selection",
+      "alias": [
+        "nns",
+        "new"
+      ],
+      "description": "New note from selection (and leave link to it in its place)",
+      "jsFunction": "newNoteFromSelection"
+    },
+    {
+      "name": "Filer: update plugin settings",
+      "description": "Settings interface (even for iOS)",
+      "jsFunction": "updateSettings"
+    }
+  ],
+  "plugin.settings": [
+    {
+      "type": "heading",
+      "title": "Filer plugin settings"
+    },
+    {
+      "key": "includeFromStartOfSection",
+      "title": "Include lines from start of Section in the Block?",
+      "description": "Controls whether all the lines in the current heading's section are included in the block to move (true) or whether only the following ones that are more deeply indented are included (false; this is the default).",
+      "type": "bool",
+      "default": false,
+      "required": true
+    },
+    {
+      "key": "useTightBlockDefinition",
+      "title": "Use a tighter definition of when a Block finishes?",
+      "description": "By default a Block includes blank lines and separators. If you wish those to instead mark the end of a Block, then set this to true.",
+      "type": "bool",
+      "default": false,
+      "required": true
+    },
+    {
+      "key": "whereToAddInSection",
+      "title": "Where to add in section",
+      "description": "Controls whether moved lines get inserted at the start or end of the chosen section.",
+      "type": "string",
+      "choices": [
+        "start",
+        "end"
+      ],
+      "default": "start",
+      "required": true
+    },
+    {
+      "key": "allowNotePreambleBeforeHeading",
+      "title": "Allow preamble before first heading?",
+      "description": "If set, some 'preamble' lines are allowed directly after the title. When filing/moving/inserting items with these commands, this preamble will be left in place, up to and including the first blank line, heading or separator. Otherwise the first heading will be directly after the note's title line (or frontmatter if used).",
+      "type": "bool",
+      "default": true,
+      "required": true
+    },
+    {
+      "key": "addDateBacklink",
+      "title": "Add date reference?",
+      "description": "If true, adds date reference on the moved paragraph(s) when moved from a daily note.",
+      "type": "bool",
+      "default": false,
+      "required": true
+    },
+    {
+      "key": "dateRefStyle",
+      "title": "Date reference style",
+      "description": "The style of added date reference on a moved note: add either 'link' ('>date') or 'at' ('@date') or 'date' (a formatted date string).",
+      "type": "string",
+      "choices": [
+        "at",
+        "date",
+        "link"
+      ],
+      "default": "link",
+      "required": true
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "heading",
+      "title": "\"/note link\" commands settings"
+    },
+    {
+      "key": "typesToFile",
+      "title": "Types of lines to file",
+      "description": "By default these commands file all lines that contain a [[note link]] (or blocks that start with a [[note link]] line). But you can select different subsets of lines to move or copy.",
+      "type": "string",
+      "choices": [
+        "all lines",
+        "all but incomplete task/checklist items",
+        "only completed task/checklist items",
+        "only non-task/checklist items"
+      ],
+      "default": "all lines",
+      "required": true
+    },
+    {
+      "key": "whereToAddInNote",
+      "title": "Where to add in the note",
+      "description": "If the [[note link]] doesn't include a heading, then this controls whether filed lines get inserted at the start or end of the note.",
+      "type": "string",
+      "choices": [
+        "start",
+        "end"
+      ],
+      "default": "start",
+      "required": true
+    },
+    {
+      "key": "useBlocks",
+      "title": "File the rest of a block the note link is in?",
+      "description": "If set, this command will include the rest of the following block this line is in: any indented lines, or (if this line is a heading) all lines following until a blank line, or heading of the same level or higher. Default is not to use blocks, which only files this line.",
+      "type": "bool",
+      "default": false,
+      "required": true
+    },
+    {
+      "key": "ignoreNoteLinkFilerTag",
+      "title": "Tag that indicates a [[note link]] should be ignored",
+      "description": "If this tag (e.g. '#ignore') is included in a line with a [[note link]] then it (and where relevant the rest of its block) will not be moved or copied.",
+      "type": "string",
+      "default": "",
+      "required": false
+    },
+    {
+      "key": "recentDays",
+      "title": "How many days to include in 'recent' changes to calendar notes?",
+      "description": "This sets how many days' worth of changes to calendar notes to include? To include all days, set to 0.",
+      "type": "number",
+      "default": 7,
+      "required": true
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "heading",
+      "title": "Debugging"
+    },
+    {
+      "key": "_logLevel",
+      "title": "Log Level",
+      "description": "Set how much output will be displayed for this plugin in the NotePlan > Help > Plugin Console. DEBUG is the most verbose; NONE is the least (silent).",
+      "type": "string",
+      "choices": [
+        "DEBUG",
+        "INFO",
+        "WARN",
+        "ERROR",
+        "none"
+      ],
+      "default": "INFO",
+      "required": true
+    }
+  ]
+}

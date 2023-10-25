@@ -1,0 +1,28 @@
+{
+  "weatherFormat" : "",
+  "templateGroupTemplatesByFolder" : false,
+  "nowFormat" : "YYYY-MM-DD h:mm:ss A",
+  "templateLocale" : "en-US",
+  "userPhone" : "(714) 555-1212",
+  "timeFormat" : "h:mm A",
+  "userFirstName" : "John",
+  "templateFolderName" : "@Templates",
+  "userEmail" : "john.doe@gmail.com",
+  "userLastName" : "Doe",
+  "services" : {
+    "quote" : {
+      "url" : "https:\/\/zenquotes.io\/api\/random",
+      "keys" : [
+        "\"",
+        "[0].q",
+        "\"",
+        " - ",
+        "*",
+        "[0].a",
+        "*"
+      ]
+    },
+    "affirmation" : "https:\/\/affirmations.dev"
+  },
+  "dateFormat" : "YYYY-MM-DD"
+}

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard (0 items)</title>
+<meta charset="utf-8">
+
+<!-- Load in Dashboard-specific CSS -->
+<link href="dashboard.css" rel="stylesheet">
+
+<!-- Load in fontawesome assets from np.Shared (licensed for NotePlan) -->
+<link href="../np.Shared/fontawesome.css" rel="stylesheet">
+<link href="../np.Shared/regular.min.flat4NP.css" rel="stylesheet">
+<link href="../np.Shared/solid.min.flat4NP.css" rel="stylesheet">
+<link href="../np.Shared/light.min.flat4NP.css" rel="stylesheet">
+
+<style type="text/css">
+/* Generated from theme 'Catppuccin' by @jgclark's generateCSSFromTheme */
+	:root {
+		--bg-main-color: #1e1e2e;
+		--fg-main-color: #a6adc8;
+		--h1-color: #cdd6f4;
+		--h2-color: #cdd6f4;
+		--h3-color: #bac2de;
+		--bg-alt-color: #11111b;
+		--tint-color: #f38ba8
+	}
+	html {
+		background: var(--bg-main-color)
+	}
+	body, .body {
+		font-size: 18px;
+		color: var(--fg-main-color);
+		font-size: 0.89rem;
+		font-family: "Avenir Next";
+		font-weight: "400";
+		font-style: "normal"
+	}
+	h1, .h1 {
+		color: #cdd6f4;
+		font-size: 1.6rem
+	}
+	h2, .h2 {
+		color: #cdd6f4;
+		font-size: 1.3rem
+	}
+	h3, .h3 {
+		color: #bac2de;
+		font-size: 1.1rem
+	}
+	h4, .h4 {
+		color: #bac2de;
+		font-size: 0.89rem
+	}
+	button {
+		color: var(--fg-main-color);
+		background-color: #5E5E5E;
+		font-family: "AvenirNext-Regular";
+		font-weight: 500;
+		border-radius: 4px
+	}
+	.fake-button a {
+		color: var(--fg-main-color);
+		background-color: #5E5E5E;
+		font-weight: 500;
+		text-decoration: none;
+		border-color: #5E5E5E;
+		border-radius: 4px;
+		box-shadow: 0 -1px 1px #6F6F6F;
+		padding: 1px 7px 1px 7px;
+		margin: 2px 4px;
+		white-space: nowrap
+	}
+	p emph {
+		color: #bac2de;
+		font-family: "Avenir Next";
+		font-weight: "400";
+		font-style: "italic"
+	}
+	p b {
+		color: #CC6666;
+		font-family: "Avenir Next";
+		font-weight: "700";
+		font-style: "normal"
+	}
+	.todo {
+		color: #f38ba8;
+		font-size: 0.89rem;
+		line-height: var(--body-line-height)
+	}
+	.checked {
+		color: #a6e3a1;
+		line-height: var(--body-line-height)
+	}
+	.cancelled {
+		color: #6c7086;
+		text-decoration: line-through;
+		text-decoration-style: solid;
+		text-decoration-thickness: 1px;
+		line-height: var(--body-line-height)
+	}
+	.task-scheduled {
+		color: #f9e2af;
+		line-height: var(--body-line-height)
+	}
+	.hashtag {
+		color: #f9e2af;
+		background-color: inherit;
+		border-radius: 5px;
+		padding-inline: 3px
+	}
+	.attag {
+		color: #f9e2af;
+		background-color: inherit;
+		border-radius: 5px;
+		padding-inline: 3px
+	}
+	.code {
+		color: #bac2de;
+		background-color: #11111b;
+		border-radius: 5px;
+		padding-inline: 3px;
+		font-size: 0.78rem;
+		font-family: "Menlo";
+		font-weight: "400";
+		font-style: "normal"
+	}
+	.highlighted {
+		color: inherit;
+		background-color: #313244;
+		border-radius: 5px;
+		padding-inline: 3px
+	}
+	.underlined {
+		font-family: "Avenir Next";
+		font-weight: "400";
+		font-style: "italic";
+		text-decoration: underline;
+		text-decoration-style: solid;
+		text-decoration-thickness: 2px;
+		text-decoration-color: #f9e2af
+	}
+	.strikethrough {
+		text-decoration: line-through;
+		text-decoration-style: solid;
+		text-decoration-thickness: 1px;
+		text-decoration-color: #9399b2
+	}
+	.priority1 {
+		color: inherit;
+		background-color: #D0021B22;
+		border-radius: 5px;
+		padding-inline: 3px
+	}
+	.priority2 {
+		color: inherit;
+		background-color: #D0021B55;
+		border-radius: 5px;
+		padding-inline: 3px
+	}
+	.priority3 {
+		color: #fafafa;
+		background-color: #D0021BAA;
+		border-radius: 5px;
+		padding-inline: 3px
+	}
+
+</style>
+</head>
+
+<body>
+<div class="body space-under"><b><span id="totalOpenCount">0</span> open items</b>; <span id="totalDoneCount">0</span> closed. Last updated 10:17 AM
+<span class="fake-button"><a class="button" href="noteplan://x-callback-url/runPlugin?pluginID=jgclark.Dashboard&command=show%20dashboard"><i class="fa-solid fa-arrow-rotate-right"></i>&nbsp;Refresh</a></span>
+<span style="float: right;"><input type="checkbox" class="apple-switch" onchange='handleCheckboxClick(this);' name="filterPriorityItems" unchecked><label for="filterPriorityItems">Filter out lower-priority items?</label></input></span>
+</div>
+
+<table id="mainTable" style="table-layout: auto; word-wrap: break-word;">
+ <tr>
+  <td style="min-width:8rem; max-width: 10rem;"><p class="sidebarDaily sectionName"><i class="fa-light fa-calendar-star pad-right"></i>Today</p>
+   <p class="sectionDescription"><span id="section0Count">1</span> from daily note or scheduled to 22/9/2023
+    <a href="noteplan://x-callback-url/runPlugin?pluginID=jgclark.Dashboard&command=addTask&arg0=20230922.txt"><i class="fa-regular fa-circle-plus sidebarDaily"></i></a>
+    <a href="noteplan://x-callback-url/runPlugin?pluginID=jgclark.Dashboard&command=addChecklist&arg0=20230922.txt"><i class="fa-regular fa-square-plus sidebarDaily"></i></a>
+   </p>
+  </td>
+  <td>
+   <div class="multi-cols">
+     <table style="table-layout: auto; word-wrap: break-word;" id="0-Section">
+       <tr class="no-borders" id="0-Congrats">
+          <td class="checked sectionItem noborders"><i class="fa-regular fa-circle-check"></i></td>
+         <td class="sectionItem noborders">Nothing to do: take a break! <i class="fa-regular fa-face-party fa-face-sleeping"></i> </td>
+       </tr>
+      </table>
+    </div>
+   </td>
+ </tr>
+</table>
+
+</body>
+
+<!-- encode+decode script -->
+<script type="text/javascript" src="../np.Shared/encodeDecode.js"></script>
+
+<!-- commsBridge scripts -->
+<script type="text/javascript" src="../np.Shared/pluginToHTMLErrorBridge.js"></script>
+<script>
+/* you must set this before you import the CommsBridge file */
+const receivingPluginID = "jgclark.Dashboard"; // the plugin ID of the plugin which will receive the comms from HTML
+// That plugin should have a function NAMED onMessageFromHTMLView (in the plugin.json and exported in the plugin's index.js)
+// this onMessageFromHTMLView will receive any arguments you send using the sendToPlugin() command in the HTML window
+
+/* the onMessageFromPlugin function is called when data is received from your plugin and needs to be processed. this function
+   should not do the work itself, it should just send the data payload to a function for processing. The onMessageFromPlugin function
+   below and your processing functions can be in your html document or could be imported in an external file. The only
+   requirement is that onMessageFromPlugin (and receivingPluginID) must be defined or imported before the pluginToHTMLCommsBridge
+   be in your html document or could be imported in an external file */
+</script>
+<script type="text/javascript" src="./commsSwitchboard.js"></script>
+<script type="text/javascript" src="../np.Shared/pluginToHTMLCommsBridge.js"></script>
+
+<!-- addIconEventListenersScript -->
+<script type="text/javascript">
+console.log('add Event Listeners to Icons ...');
+
+function mouseenterTodoFunc() {
+	// console.log('mouseenterTodo ... after '+String(event.detail)+' clicks');
+	if (event.metaKey) {
+		this.innerHTML = '<i class="cancelled fa-regular fa-circle-xmark">';
+	} else {
+		this.innerHTML = '<i class="checked fa-regular fa-circle-check">';
+	}
+}
+
+function mouseenterChecklistFunc() {
+	// console.log('mouseenterChecklist ... after '+String(event.detail)+' clicks');
+	if (event.metaKey) {
+		this.innerHTML = '<i class="cancelled fa-regular fa-square-xmark">';
+	} else {
+		this.innerHTML = '<i class="checked fa-regular fa-square-check">';
+	}
+}
+
+function mouseleaveTodoFunc() {
+	this.innerHTML = '<i class="todo fa-regular fa-circle">';
+}
+
+function mouseleaveChecklistFunc() {
+	this.innerHTML = '<i class="todo fa-regular fa-square">';
+}
+
+// Add event handlers for task icons
+let allTodos = document.getElementsByClassName("sectionItemTodo");
+for (const thisTodo of allTodos) {
+	thisTodo.addEventListener('click', function () {
+    this.removeEventListener("mouseenter", mouseenterTodoFunc);
+    this.removeEventListener("mouseleave", mouseleaveTodoFunc);
+    let thisId = thisTodo.parentElement.id;
+    console.log('sectionItemTodo ' + thisId + ' clicked');
+    let thisFilename = thisTodo.id;
+    let metaModifier = event.metaKey;
+    // handleIconClick(thisId, 'open', thisFilename, thisTodo.nextElementSibling.getElementsByTagName("A")[0].innerHTML, metaModifier);
+    handleIconClick(thisId, 'open', thisFilename, thisTodo.dataset.encodedContent, metaModifier);
+  }, false);
+	// Add mouseover-type events to hint as to what's going to happen
+	thisTodo.addEventListener('mouseenter', mouseenterTodoFunc, false);
+	thisTodo.addEventListener('mouseleave', mouseleaveTodoFunc, false);
+}
+console.log(String(allTodos.length) + ' sectionItemTodo ELs added (to icons)');
+
+// Add event handlers for checklist icons
+let allChecklists = document.getElementsByClassName("sectionItemChecklist");
+for (const thisChecklist of allChecklists) {
+	thisChecklist.addEventListener('click', function () {
+    this.removeEventListener("mouseenter", mouseenterChecklistFunc);
+    this.removeEventListener("mouseleave", mouseleaveChecklistFunc);
+    let thisId = thisChecklist.parentElement.id;
+    let thisFilename = thisChecklist.id;
+    let metaModifier = event.metaKey;
+    // handleIconClick(thisId, 'checklist', thisFilename, thisChecklist.nextElementSibling.getElementsByTagName("A")[0].innerHTML, metaModifier);
+    handleIconClick(thisId, 'checklist', thisFilename, thisChecklist.dataset.encodedContent, metaModifier);
+  }, false);
+	// Add mouseover-type events to hint as to what's going to happen
+	thisChecklist.addEventListener('mouseenter', mouseenterChecklistFunc, false);
+	thisChecklist.addEventListener('mouseleave', mouseleaveChecklistFunc, false);
+}
+console.log(String(allChecklists.length) + ' sectionItemChecklist ELs added (to icons)');
+</script>
+
+<!-- addContentEventListenersScript -->
+<script type="text/javascript">
+console.log('add Event Listeners to Content...');
+// Add click handler to all sectionItemContent items (which already have a basic <a>...</a> wrapper)
+let allContentItems = document.getElementsByClassName("sectionItemContent");
+for (const contentItem of allContentItems) {
+  const thisID = contentItem.parentElement.id;
+  const thisEncodedContent = contentItem.dataset.encodedContent; // i.e. the "data-encoded-content" element, with auto camelCase transposition
+  const thisEncodedFilename = contentItem.dataset.encodedFilename; // contentItem.id;
+  console.log('- sIC on ' + thisID + ' / ' + thisEncodedFilename + ' / ' + thisEncodedContent);
+
+  // add event handler to each <a> (normally only 1 per item),
+  // unless it's a noteTitle, which gets its own click handler.
+  const theseALinks = contentItem.getElementsByTagName("A");
+  for (const thisLink of theseALinks) {
+    console.log('- A on ' + thisID + ' / ' + thisEncodedFilename + ' / ' + thisEncodedContent + ' / ' + thisLink.className);
+    if (!thisLink.className.match('noteTitle')) {
+      thisLink.addEventListener('click', function (event) {
+        event.preventDefault();
+        handleContentClick(event, thisID, thisEncodedFilename, thisEncodedContent);
+      }, false);
+    }
+  }
+
+  // add event handler to each "div.content" (normally only 1 per item),
+  const theseDIVLinks = contentItem.getElementsByTagName("DIV");
+  for (const thisLink of theseDIVLinks) {
+    if (thisLink.className.match('content') && !(thisLink.className.match('tooltip')))  {
+      console.log('DIV.content on ' + thisID + ' / ' + thisEncodedFilename + ' / ' + thisLink.className);
+      thisLink.addEventListener('click', function (event) {
+        // event.preventDefault(); // now disabled to ensure that externalLinks etc. can fire
+        handleContentClick(event, thisID, thisEncodedFilename, thisEncodedContent);
+      }, false);
+    }
+  }
+}
+console.log(String(allContentItems.length) + ' sectionItem ELs added (to content links)');
+</script>
+
+<!-- addButtonEventListenersScript -->
+<script type="text/javascript">
+function findAncestor(startElement, tagName) {
+  let currentElem = startElement;
+  while (currentElem != document.body) {
+    if (currentElem.tagName.toLowerCase() == tagName.toLowerCase()) { return currentElem; }
+    currentElem = currentElem.parentElement;
+  }
+  return false;
+}
+
+// Add click handler to all hoverExtraControls' buttons
+// Using [HTML data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
+let allMoveButtons = document.getElementsByClassName("moveButton");
+for (const button of allMoveButtons) {
+  // const thisTD = button.parentElement.parentElement.parentElement;
+  const thisTD = findAncestor(button, 'TD');
+  const thisID = thisTD.parentElement.id;
+  const thisControlStr = button.dataset.controlStr;
+  const thisEncodedContent = thisTD.dataset.encodedContent; // i.e. the "data-encoded-content" element, with auto camelCase transposition
+  // console.log('-', thisID, thisControlStr, thisEncodedContent);
+  const thisFilename = button.parentElement.dataset.dateString;
+  // add event handler
+  button.addEventListener('click', function (event) {
+    event.preventDefault();
+    handleButtonClick(thisControlStr, 'moveFromCalToCal', thisFilename, thisEncodedContent); // , event.metaKey
+  }, false);
+}
+console.log(String(allMoveButtons.length) + ' moveButton ELs added');
+
+let allChangeDateButtons = document.getElementsByClassName("changeDateButton");
+for (const button of allChangeDateButtons) {
+  // const thisTD = button.parentElement.parentElement.parentElement;
+  const thisTD = findAncestor(button, 'TD');
+  const thisID = thisTD.parentElement.id;
+  const thisControlStr = button.dataset.controlStr;
+  const thisEncodedContent = thisTD.dataset.encodedContent; // i.e. the "data-encoded-content" element, with auto camelCase transposition
+  const thisEncodedFilename = thisTD.dataset.encodedFilename;
+  // add event handler
+  button.addEventListener('click', function (event) {
+    event.preventDefault();
+    handleButtonClick(thisControlStr, 'updateTaskDate', thisEncodedFilename, thisEncodedContent); // , event.metaKey
+  }, false);
+}
+console.log(String(allChangeDateButtons.length) + ' dateChangeButton ELs added');
+</script>
+
+<!-- addReviewEventListenersScript -->
+<script type="text/javascript">
+console.log('add Event Listeners to Review items...');
+// Add click handler to all 'review' class items (which already have a basic <a>...</a> wrapper)
+// Using [HTML data attributes](https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes)
+let allReviewItems = document.getElementsByClassName("review");
+for (const reviewItem of allReviewItems) {
+  const thisID = reviewItem.id;
+  const thisEncodedFilename = reviewItem.dataset.encodedFilename; // i.e. the "data-encoded-review" element, with auto camelCase transposition
+  // add event handler
+  reviewItem.addEventListener('click', function (event) {
+    event.preventDefault();
+    handleIconClick(thisID, 'review', thisEncodedFilename, '', event.metaKey);
+  }, false);
+}
+console.log(String(allReviewItems.length) + ' review ELs added (to review cells)');
+</script>
+
+<!-- clickHandlersScript -->
+<script type="text/javascript">
+
+// For clicking on item icons
+function handleIconClick(id, itemType, filename, content, metaModifier) {
+  console.log('handleIconClick( ' + id + ' / ' + itemType + ' / ' + filename + '/ {' + content + '} / ' + String(metaModifier)+ ' )');
+  const encodedFilename = filename; // already encoded at this point. Was: encodeRFC3986URIComponent(filename);
+  const encodedContent = content; // already encoded at this point. Was: encodeRFC3986URIComponent(content);
+
+  switch(itemType) {
+    case 'open': {
+      onClickDashboardItem( { itemID: id, type: (metaModifier) ? 'cancelTask' : 'completeTask', encodedFilename: encodedFilename, encodedContent: encodedContent } );
+      break;
+    }
+    case 'checklist': {
+      onClickDashboardItem( { itemID: id, type: (metaModifier) ? 'cancelChecklist' : 'completeChecklist', encodedFilename: encodedFilename, encodedContent: encodedContent } );
+      break;
+    }
+    case 'review': {
+      onClickDashboardItem( { itemID: id, type: 'showNoteInEditorFromFilename', encodedFilename: encodedFilename, encodedContent: '' } );
+      break;
+    }
+    default: {
+      console.error('- unknown itemType: ' + paraType);
+      break;
+    }
+  }
+}
+
+// For clicking on main 'paragraph content'
+function handleContentClick(event, id, filename, content) {
+  console.log('handleContentClick( ' + id + ' / ' + filename + ' / ' +content + ' ) for event currentTarget: ' + event.currentTarget);
+  const encodedFilename = filename; // already encoded at this point. Was: encodeRFC3986URIComponent(filename);
+  const encodedContent = content; // already encoded at this point. Was: encodeRFC3986URIComponent(content);
+	// onClickDashboardItem( { itemID: id, type: 'showNoteInEditorFromFilename', encodedFilename: encodedFilename, encodedContent: encodedContent } );
+	onClickDashboardItem( { itemID: id, type: 'showLineInEditorFromFilename', encodedFilename: encodedFilename, encodedContent: encodedContent } ); // TEST: change from openNote.. to openLine...
+}
+
+// For clicking on checkbox
+function handleCheckboxClick(cb) {
+  console.log("Checkbox for " + cb.name + " clicked, new value = " + cb.checked);
+  onChangeCheckbox(cb.name, cb.checked);
+}
+
+// For clicking on button in hoverExtraControls
+function handleButtonClick(id, controlStr, filename, content) {
+  console.log("Button clicked on id: " + id + " for controlStr " + controlStr + ". filename: " + filename + " content: {" + content +"}");
+  onClickDashboardItem( { itemID: id, type: controlStr, encodedFilename: filename, encodedContent: content } );
+}
+</script>
+
+
+</html>

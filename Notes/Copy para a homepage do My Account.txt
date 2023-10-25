@@ -1,0 +1,7 @@
+# Copy para a homepage do My Account
+Hello {name},
+Welcome to your WP Ultimo dashboard. This centralized platform provides you with easy access to all aspects of your WP Ultimo experience. Here, you can manage your subscriptions, download resources, and find links to additional offerings like our community forum.
+
+### Built with WP Ultimo Next
+Everything on this dashboard is crafted using the robust tools available in WP Ultimo Next. From the seamless "Single Page Application"-style user experience to interactive elements like dropdown menus, modal windows, forms, and notifications, you can create, modify, and enhance all features without writing a single line of code.
+Learn more about these features in the sections below.

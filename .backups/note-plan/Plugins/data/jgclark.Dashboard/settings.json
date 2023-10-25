@@ -1,0 +1,15 @@
+{
+  "autoAddTrigger" : false,
+  "excludeTasksWithTimeblocks" : false,
+  "separateSectionForReferencedNotes" : false,
+  "includeFolderName" : true,
+  "tagToShow" : "",
+  "_logLevel" : "INFO",
+  "ignoreTasksWithPhrase" : "#waiting",
+  "ignoreFolders" : [
+    "Saved Searches"
+  ],
+  "includeTaskContext" : true,
+  "excludeChecklistsWithTimeblocks" : false,
+  "triggerLogging" : false
+}

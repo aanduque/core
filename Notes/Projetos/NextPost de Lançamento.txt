@@ -1,0 +1,122 @@
+# Documentação
+
+Vou começar a escrever de qualquer jeito, e em tópicos, dai eu peço o ChatGPT para completar para mim.
+
+### Estrutura
+Vamos utilizar como base a documentação do Laravel. Isso vai nos dar um bom ponto de partida para podermos escrever algumas coisinhas e pedir para o ChatGTP escrever o resto. É claro que vamos ter que dar algumas instruções para ele também, mas acho que ele vai dar conta de desenrolar sozinho.
+
+#### Prompt para o GPT
+
+I just got another task: we need to write the content of the documentation site for a project we are finishing up at our company. It is a product called Next, a set of new tools for WP Ultimo. 
+The landing page for the next project can be found [here](https://wpultimo.com/next). I'll give you a set of directions on how to write the documentation and which topics it should cover and you'll write the documentation for me. You'll write the content in the style of Taylor Otwell and the Laravel Framework documentation. Include placeholders for places where you feel a screenshot would make sense and describe what the screenshot should contain. Write the content in markdown format. Organize the content hierarchically, with topics, subtopics, headings, etc. Draw heavily on the Laravel docs for inspiration on the structure. 
+Instructions: 
+- Start with some basic text explaining that next is currently in the 0.X branch but the ideia is to move fast to reach 1.0 status as soon as possible, so it can be merged with WP Ultimo 2.0 core. 
+- Explain that until that stage is reached, only WP Ultimo prime subscribers will have access to next and the additional plugins and extensions available to it. Direct users that wish to become prime members to the site https://wpultimo.com/next
+- Explain that this documentation is a work-in-progress and its content will change frequently.
+- Explain that updates and changelogs to next and the extensions will be available inside the my account panel, in the url https://my.wpultimo.com. 
+- Include the fact that the my.wpultimo.com site was entirely built using next and wp ultimo as a info block, and that content covering how specific features were added will be posted as updates 
+
+- Prologue
+	- Release Notes
+	- Upgrade Guide
+	- Contribution Guide
+- Getting Started
+	- Installation
+	- Configuration
+	- Directory Structure
+	- Frontend
+	- Starter Kits
+	- Deployment
+- Architecture Concepts
+	- Request Lifecycle
+	- Service Container
+	- Service Providers
+	- Facades
+- The Basics
+	- Routing
+	- Middleware
+	- CSRF Protection
+	- Controllers
+	- Requests
+	- Responses
+	- Views
+	- Blade Templates
+	- Asset Bundling
+	- URL Generation
+	- Session
+	- Validation
+	- Error Handling
+	- Logging
+- Digging Deeper
+	- Artisan Console
+	- Broadcasting
+	- Cache
+	- Collections
+	- Contracts
+	- Events
+	- File Storage
+	- Helpers
+	- HTTP Client
+	- Localization
+	- Mail
+	- Notifications
+	- Package Development
+	- Processes
+	- Queues
+	- Rate Limiting
+	- Strings
+	- Task Scheduling
+- Security
+	- Authentication
+	- Authorization
+	- Email Verification
+	- Encryption
+	- Hashing
+	- Password Reset
+- Database
+	- Getting Started
+	- Query Builder
+	- Pagination
+	- Migrations
+	- Seeding
+	- Redis
+- Eloquent ORM
+	- Getting Started
+	- Relationships
+	- Collections
+	- Mutators / Casts
+	- API Resources
+	- Serialization
+	- Factories
+- Testing
+	- Getting Started
+	- HTTP Tests
+	- Console Tests
+	- Browser Tests
+	- Database
+	- Mocking
+- Packages
+	- Breeze
+	- Cashier (Stripe)
+	- Cashier (Paddle)
+	- Dusk
+	- Envoy
+	- Fortify
+	- Folio
+	- Homestead
+	- Horizon
+	- Jetstream
+	- Mix
+	- Octane
+	- Passport
+	- Pennant
+	- Pint
+	- Precognition
+	- Prompts
+	- Sail
+	- Sanctum
+	- Scout
+	- Socialite
+	- Telescope
+	- Valet
+- API Documentation

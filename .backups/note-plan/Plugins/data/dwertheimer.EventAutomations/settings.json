@@ -1,0 +1,52 @@
+{
+  "syncedCopiesTitle" : " [Today's Synced Tasks](noteplan:\/\/x-callback-url\/runPlugin?pluginID=dwertheimer.EventAutomations&command=Insert%20Synced%20Todos%20for%20Open%20Calendar%20Note&arg0=yes)",
+  "linkText" : "→",
+  "insertIntoEditor" : true,
+  "foldTimeBlockHeading" : false,
+  "presets" : [
+    {
+      "label" : "Limit Time Blocks to Work Hours",
+      "workDayStart" : "08:00",
+      "workDayEnd" : "17:59"
+    },
+    {
+      "todoChar" : "*",
+      "label" : "Create Timeblocks on Calendar",
+      "deletePreviousCalendarEntries" : true,
+      "createCalendarEntries" : true
+    }
+  ],
+  "allowEventSplits" : false,
+  "todoChar" : "+",
+  "workDayEnd" : "23:59",
+  "showResultingTimeDate" : true,
+  "calendarToWriteTo" : "",
+  "includeLinks" : "Pretty Links",
+  "checkedItemChecksOriginal" : false,
+  "eventLength" : "30",
+  "mode" : "PRIORITY_FIRST",
+  "foldSyncedCopiesHeading" : false,
+  "createCalendarEntries" : false,
+  "removeDateText" : false,
+  "eventEnteredOnCalTag" : "#event_created",
+  "deletePreviousCalendarEntries" : false,
+  "excludeTasksWithText" : [
+
+  ],
+  "createSyncedCopies" : false,
+  "removeDuration" : true,
+  "includeTasksWithText" : [
+
+  ],
+  "orphanTagggedTasks" : "OUTPUT_FOR_INFO (but don't schedule them)",
+  "includeAllTodos" : true,
+  "timeBlockHeading" : "[Time Blocks](noteplan:\/\/runPlugin?pluginID=dwertheimer.EventAutomations&command=atb%20-%20Create%20AutoTimeBlocks%20for%20%3Etoday%27s%20Tasks)",
+  "timeBlockTag" : "#🕑",
+  "_logLevel" : "LOG",
+  "plugin_ID" : "dwertheimer.EventAutomations",
+  "workDayStart" : "00:00",
+  "durationMarker" : "'",
+  "confirm" : true,
+  "intervalMins" : 5,
+  "defaultDuration" : 15
+}

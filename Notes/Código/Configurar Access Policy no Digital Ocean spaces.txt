@@ -1,0 +1,33 @@
+# Configurar Access Policy no Digital Ocean spaces
+```
+# Criar uma pasta para poder usar como volume
+mkdir do-spaces-example && cd do-spaces-example
+
+# Configure the credentials
+docker run -it --rm -v "$(pwd):/root" mountainpass/s3cmd s3cmd --configure
+
+# Create a policy.json file with the access policy (example below)
+code policy.json
+
+# Set the policy to the bucket
+docker run -it --rm -v "$(pwd):/root" mountainpass/s3cmd s3cmd setpolicy ./policy.json s3://nextpress-typebot
+```
+
+Exemplo de Policy
+```
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "PublicRead",
+      "Effect": "Allow",
+      "Principal": "*",
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::nextpress-typebot/public/*"
+    }
+  ]
+}
+
+```
+
+

@@ -1,0 +1,9 @@
+{
+  "locale" : "en-US",
+  "dateStyle" : "full",
+  "hour12" : false,
+  "format" : "%Y-%m-%d %H:%M",
+  "timeStyle" : "short",
+  "timezone" : "automatic",
+  "version" : "1.3.2"
+}

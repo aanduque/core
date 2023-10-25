@@ -1,0 +1,94 @@
+# ⚠️ Repository
+#### External Types
+Essa feature é, na verdade, uma evolução do bloco de query dinâmico, que era a minha abordagem até agora. A ideia é simples: ao invés de buscar uma estrutura de dados específica dentro do database do WordPress, nós utilizamos workflows para desempenhar as funções de retrieve clássicas de um CRUD.
+
+##### Sessão 5 17:30 - 18:15
+- [ ] Usuário é capaz de clicar um botão para criar um novo Workflow (via uma modal) vou garoto, mais dormir.
+- [ ] Integração com o Forminator, para termos um exemplo WPU-1213
+
+##### Sessão 6 18:45 - 19:45
++ Ronda de suporte nos meus tickets ^waagkq
++ Ronda de suporte nos tickets do @allyson ^u92p0c
+
+#### Sistema de Suporte …
+Isso é um mini-projeto, que quero utilizar de base para me ajudar a estruturar o trabalho de uma maneira menos abstrata. O primeiro passo é listar os requisitos dessa funcionalidade, na parte do front-end do usuário que vai acessar o painel do my-account. São elas:
+- O usuário deve ser capaz de visualizar seus tickets em aberto e fechados dentro da página de suporte
+- O usuário deve ser capaz de iniciar um novo ticket de suporte
+	- Opcional: se possível, dar a opção de seleção da licença a ser atrelada ao ticket
+- Uma vez criado, o usuário deve ser redirecionado a uma página dedicada a este ticket
+- Se o ticket não existir, uma página de erro deve ser exibida, ou o usuário deve ser redirecionado para a listagem de tickets
+- Dentro da página de detalhes de um ticket, o usuário deve ser capaz de ler a conversa em seu inteiro teor, e responder com uma nova mensagem
+	- Optional: se for possível, o usuário deve ser capaz de enviar uploads em suas mensagens, bem como formatá-las com rich-text
+- Optional: O usuário deve ser notificado quando uma nova resposta for recebida
+- Optional: O usuário deve ser capaz de encerrar um ticket de suporte ao clicar em um botão dedicado a esta função
+
+- [ ] Finalização da versão mínima do install do Next WOW-209
+- [ ] Implementar runner de workflows via WP-CLI WPU-1206
+- [ ] Acesso à assinatura e aos downloads WPU-1197
+- [ ] Action Packs - Adicionar atributos WPU-1208
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---
+#### ✅ Tarefas
+- [x] Pagar ao menos uma parcela do plano de saúde DIR-2166 ^8ke5lx @done(2023-10-17 21:53)
+- [x] Negociar a fatura do Banco Inter [Email](https://app.sparkmailapp.com/web-share/URXDge1uDD8Pu7dfI5OA9-aM8VqMLCd8kl24LkW0) ^2dypw2 @done(2023-10-17 21:53)
+- [x] Pagar o condomínio no novo app da imobiliária [Email](https://app.sparkmailapp.com/web-share/6BoPG2NWFDJ5arhu_YGlS9ImSogasFFvpAuDeP3y) ^tne0nm @done(2023-10-17 21:44)
++ Mudar a conta de depósito do pagamento dos aluguéis ^furtgy
+> Preciso enviar um email para eles formalizando o pedido, mas isso só aconteceria a partir do mês que vem.
+
+- [ ] Desenho da Feature de integração com as licenças do Freemius
+- [ ] Desenho da feature chamada External Types
+- [ ] Mover o desenho dos External Types para o Linear, como um doc ou issue
+- [ ] Criar página de suporte com o bloco especial de query, puxando os dados do Chatwoot
+- [ ] Documentar o bloco especial de query vinda de um workflow
+
+- [ ] Laravel Data: https://blog.stackademic.com/laravel-data-and-value-objects-dc7d25e7d182
+- [ ] Projeto de aposentar o delta, em favor de uma base que rode sobre o EasyPanel
+	- [x] Comprar licença do EasyPanel - a mais barata primeiro ^py7rn0 @done(2023-10-06)
+	- [ ] Mover Apps que eliminam droplets
+		- [x] Mover o enterprise para o servidor novo NEX-552 ^esm2hr @done(2023-10-07 13:32)
+		- [ ] Mover o deploy para o servidor novo
+		- [ ] Mover o nextpress.co para o EasyPanel
+	- [ ] Mover apps do Delta
+		- [ ] Homer
+		- [ ] N8N
+		- [ ] Chatwoot
+	- [ ] Apps para testar
+		- [ ] Nango
+		- [ ] https://qdrant.tech/demo/
+	- [ ] Sites importantes para mover
+		- [ ] wpultimo.com
+
+- [ ] Revisar as tarefas nas pastas do Linear
+- [ ] Remover o NitroPack NEX-531
+
+- [ ] Ferramenta de extração e replicação de um layout utilizando blocos
+	- Extrair o css: https://github.com/projectwallace/extract-css
+
+#### Outras tarefas
+- [-] Personalização dos emails do Chatwoot NEX-536
+- [ ] Buscar textos e postagens em potencial que eu tenho e colocar num lugar central WOW-213
+- [ ] Entrar em contato com a caixa para tentar negociar o pagamento do apartamento
+- [ ] Fazer um bloco de 45 minutos dando suporte nos tickets do @allyson
+
+#### Pessoal
+- [ ] Como posso introduzir a Alura no meu dia de trabalho? ^pg73ep

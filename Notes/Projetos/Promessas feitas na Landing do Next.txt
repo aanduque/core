@@ -1,0 +1,134 @@
+# Promessas feitas na Landing do Next
+Vou mover para aqui a lista de coisas que eu coloquei no site do Next como promessas para as pessoas que compraram o produto. Com isso, eu consigo priorizar o que preciso fazer, o que sem sombra de dúvidas precisa ser entregue e quando, e o que não precisa ser tocado por enquanto entre os itens que ficam surgindo na minha cabeça.
+
+### Types
+- [ ] Create CPT, taxonomies, and more that apply to the whole network - using a visual interface.
+- [ ] Define relationships between your types to encapsulate the business logic of your product.
+- [ ] Control which customers can access which types by combining Types with Access Gates.
+- [ ] Create custom features by triggering Workflows when an item is created, updated, or deleted.
+- [ ] Allow your customers to create, edit, and delete their collections you have created using Studio.
+- [ ] For devs: all types registered are available in code as `\YourNamespace\TypeName`  Eloquent models.
+
+#### Infraestrutura
+- [ ] Adicionar campos à posts, usuários, ou sites
+
+### Access Gates
+- [ ] A user-role system compatible with Multisite, without the inconsistencies of the WP implementation.
+- [ ] Control the visibility and access of certain features or content blocks visually, via access rules.
+	+ Controle de Visibilidade de blocos dentro de uma página
+		+ Implementar os demais comparadores que estão faltando #delegar
+	+ Controle de Visibilidade de páginas do site
+- [-] Improved performance - when checking for user capabilities or roles, or evaluating access rules.
+	> Cancelando esse item porque não é algo que a gente tenha como entregar diretamente agora.
+
+### Workflows
+- [ ] Create powerful custom features by chaining Action blocks together in the Workflows editor.
+- [ ] Tap into WP Actions and Filters without writing a single line of code, by using our visual editor.
+- [ ] Use our powerful "PHP Code" action to write your own custom workflow actions, if you want to.
+- [ ] Run heavy-duty Workflows in the background using our powerful queue system.
+- [ ] Share your Workflows with the community for free or for a price on the Ultimo Marketplace.
+- [ ] Use the power of our AI to create workflows by describing what you want to achieve in plain English.
+
+### Studio
+- [ ] Create admin panels from scratch, using the block editor and our collection of block patterns.
+- [ ] Create internal admin panels and tools for you to manage your WaaS and follow key metrics.
+- [ ] Offer your customers a Single Page App experience with Studio's powerful optimization features.
+- [ ] Blazing fast loading times thanks to Studio's support for caching plugins, block lazy-loading.
+- [ ] Build as many admin panels as you want and assign them to different access rules, products.
+- [ ] Share your custom panels with the community for free or for a price on the Ultimo Marketplace.
+
+#### Studio → Shell Theme
+- [ ] Limpar o Shell Theme, principalmente o `functions.php`
+- [x] Forçar a seleção do Shell como tema padrão nos sites criados como app @done(2023-09-14 11:58)
+- [ ] Elementos-padrão, seguindo o padrão do Tailwind
+
+#### UI Elements
+- [ ] Criar um site do tipo App
+- [ ] Bloco de Ícones
+- [ ] Conteúdo Dinâmico
+
+### Connect
+- [ ] Off-load sub-sites to single installs with one click, while keeping them connected to your WaaS.
+- [ ] Connect offers a selection of hosting providers to choose from. Link as many as you want.
+- [ ] Manage external sites as if they're part of your WaaS and without keeping things in sync.
+- [ ] Automate site offloading by attaching a provider to a product and letting Connect do the rest.
+- [ ] Bypass the SSL certificate 100 domains limit of some providers by having Connect manage them.
+
+### AI Toolkit
+- [ ] Add new types, workflows, and more using the power of our AI, by describing them in plain english.
+- [ ] Leverage our AI Workflow Actions to expose auto-generational features to your end customer.
+- [ ] Understand your business better by using our AI to analyze your data and generate reports.
+
+### Marketplace
+- [ ] Get access to a growing library of types, workflows, and more, created by other WaaS owners.
+- [ ] Share your custom types, workflows, and more with other WaaS owners, either for free or for a price.
+- [ ] Build on-top of what's already there and save time by not having to reinvent the wheel.
+
+## Outros Items
+Para além dos items que foram prometidos para o pessoal, também temos que fazer os itens que permitem que as coisas cheguem até os usuários, que o produto possa ser distribuído, etc. Vou listar isso aqui em baixo, para que não os percamos de vista.
+
+### Lançamento
+- [ ] Pensar que pontos endereçar no anúncio
+- [ ] Enviar email para os membros do prime com a senha de acesso
+- [ ] Enviar no chat para que a galera possa testar certinho
+
+### Distribuição
+- [ ] Sistema de updates
+	- [ ] REST API para download das releases do plugin
+	- [ ] Sistema de Verificação de Licenças
+
+### Compatibilidade com a v2
+- [ ] Resolver problemas com o PHP 8.1 e 8.2
+- [ ] Actions de workflows para a v2
+
+### Outros Ajustes
+- [ ] Remover a `public/index.php` do build
+- [ ] Utilizar o código do Yan para checar os pré-requisitos
+- [ ] Rodar as Migrações
+- [ ] Mover o Concern `AsNode` para o Auroro, removendo-o do Next
+- [ ] Fazer uma classe na estilo da `Auroro\Support\Plugin` para temas, também, e aplicar no Shell
+
+
+#### 
+
+
+
+
+## Lançamento do Next
+
+### Lançamento para os usuários do Prime
+Para o lançamento em si, minha ideia é ter trabalhar em dois items: a **postagem de lançamento** e um **vídeo demo** sobre os Access Gates.
+
+
+
+Interno:
+
+	Updater:
+
+
+Painel de Administração:
+
+Workflows:
+	Criar e Editar um Workflow:
+	Engatilhar o Workflow em um elemento do Front-end:
+	Queues:
+		Queues rodando com o Cron:
+		Horizon:
+
+Types:
+
+
+Connect:
+	- Connect Server
+	- Client para conectar de volta ao Connect Server
+
+AI Toolkit:
+	- Action de criação
+
+Studio:
+	- Criar um site do tipo App
+	Bloco de Ícones:
+	Conteúdo Dinâmico:
+
+Access Gates:
+	Page Gate:

@@ -1,0 +1,22 @@
+# Pauta da reunião com o Allyson
+### Motivação
+- [ ] Explicar que um dos maiores problemas da NextPress é que perdemos muito a confiança dos clientes por causa da nossa inconstância.
+- [ ] Essa inconstância é causada, em parte, por causa das minhas deficiências como um gestor, e isso tem uma série de motivos, muitos dos quais ele já percebeu, provavelmente.
+- [ ] O time é extremamente sub-utilizado porque não temos ninguém controlando como está ficando a alocação dos nossos recursos.
+
+### Como queremos corrigir
+- [ ] Esse trampo de manter as coisas correndo xuá é um trabalho full-time. Por causa da experiência dele lidando com agência, achamos que ele é o melhor candidato para mexer com isso.
+- [ ] Se as coisas dependerem mim ativamente, elas não andam. Foi o que aconteceu quando o Advaldo foi contratado para dar uma consultoria de processos temporária e não conseguimos nem terminar os desenhos dos processos, muito menos colocar nada em prática. Para funcionar, eu tenho que me adaptar à você.
+- [ ] Eu sou intimidador, imagino, mas aprecio muito o fato de que ele é capaz de me criticar. Não precisa pisar tanto em ovos. Eu te respeito muito como profissional, e esse respeito precisa ser a base desse nosso relacionamento.
+- [ ] Questão de cobranças entre Juliana e eu, e ele como um terceiro elemento mediador.
+
+### Responsabilidades desse papel
+- [ ] Manter a maquina rodando, sem tempos longos de ociosidade, com recursos alocados.
+- [ ] Alocação de recursos
+- [ ] Pessoa com um senso de realidade para ajudar na análise dos prazos dos projetos
+- [ ] Consistência no curto prazo
+
+### Objetivos imediatos
+- [ ] Consistência de versões
+- [ ] Desafogar o Suporte e comunidade
+- [ ] Pensar elementos e ferramentas que podemos utilizar para evitar que esse problema se repita

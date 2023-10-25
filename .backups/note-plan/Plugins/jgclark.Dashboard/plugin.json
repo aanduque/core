@@ -1,0 +1,211 @@
+{
+  "noteplan.minAppVersion": "3.8.1",
+  "macOS.minVersion": "10.13.0",
+  "plugin.id": "jgclark.Dashboard",
+  "plugin.name": "🎛 Dashboard",
+  "plugin.description": "A Dashboard for NotePlan",
+  "plugin.icon": "🎛",
+  "plugin.author": "Jonathan Clark",
+  "plugin.url": "https://github.com/NotePlan/plugins/tree/main/jgclark.Dashboard/",
+  "plugin.changelog": "https://github.com/NotePlan/plugins/blob/main/jgclark.Dashboard/CHANGELOG.md",
+  "plugin.version": "0.6.0",
+  "plugin.lastUpdateInfo": "v0.6.0: adds tooltip on displayed tasks that allows task to be moved on to next day, week etc. Adds lots of new theming support. Plus other visual polish and fixes.\nv0.5.1: display improvements + bug fixes.\nv0.5.0: Can now filter out lower-priority items. Can cancel or add tasks and checklists. New optional 'hastags/mentions to show' section.\nv0.4.2: various updates to window handling.v0.4.1: bug fix, polish and demo updates.",
+  "plugin.requiredFiles": [
+    "commsSwitchboard.js",
+    "dashboard.css",
+    "debounce.js"
+  ],
+  "plugin.requiredSharedFiles": [
+    "fontawesome.css",
+    "light.min.flat4NP.css",
+    "regular.min.flat4NP.css",
+    "solid.min.flat4NP.css",
+    "fa-light-300.woff2",
+    "fa-regular-400.woff2",
+    "fa-solid-900.woff2",
+    "pluginToHTMLCommsBridge.js",
+    "encodeDecode.js"
+  ],
+  "plugin.script": "script.js",
+  "plugin.isRemote": "false",
+  "plugin.commands": [
+    {
+      "name": "show dashboard",
+      "alias": [
+        "dbh"
+      ],
+      "description": "Show Dashboard (in HTML view)",
+      "jsFunction": "showDashboardHTML"
+    },
+    {
+      "name": "onMessageFromHTMLView",
+      "description": "Dashboard: Callback function to receive messages from HTML view",
+      "jsFunction": "onMessageFromHTMLView",
+      "hidden": true
+    },
+    {
+      "name": "test:demo dashboard",
+      "alias": [
+        "ddb"
+      ],
+      "description": "Show Demo Dashboard",
+      "jsFunction": "showDemoDashboardHTML",
+      "hidden": true
+    },
+    {
+      "name": "decideWhetherToUpdateDashboard",
+      "description": "onEditorWillSave",
+      "jsFunction": "decideWhetherToUpdateDashboard",
+      "hidden": true
+    },
+    {
+      "name": "addTask",
+      "description": "HTML window entry point to interactively add a new task",
+      "jsFunction": "addTask",
+      "hidden": true
+    },
+    {
+      "name": "addChecklist",
+      "description": "HTML window entry point to interactively add a new checklist",
+      "jsFunction": "addChecklist",
+      "hidden": true
+    },
+    {
+      "name": "Dashboard: reset window size",
+      "description": "reset Dashboard window size",
+      "jsFunction": "resetDashboardWinSize"
+    },
+    {
+      "name": "Dashboard: update plugin settings",
+      "description": "Settings interface (even for iOS)",
+      "jsFunction": "updateSettings"
+    }
+  ],
+  "plugin.disabledCommands": [
+    {
+      "name": "log dashboard",
+      "alias": [
+        "ldb"
+      ],
+      "description": "Log Dashboard information",
+      "jsFunction": "logDashboardData"
+    },
+    {
+      "name": "show dashboard (React)",
+      "alias": [
+        "dbr"
+      ],
+      "description": "Show Dashboard (React method)",
+      "jsFunction": "showDashboardReact"
+    }
+  ],
+  "plugin.settings": [
+    {
+      "type": "heading",
+      "title": "Dashboard settings"
+    },
+    {
+      "key": "separateSectionForReferencedNotes",
+      "title": "Show referenced items in separate section?",
+      "description": "Whether to show Today's open tasks and checklists in two separate sections: first from the daily note itself, and second referenced from project notes.\nThe same also goes for Weekly/Monthly/Quarterly notes.",
+      "type": "bool",
+      "default": false,
+      "required": true
+    },
+    {
+      "key": "ignoreTasksWithPhrase",
+      "title": "Ignore items with this phrase",
+      "description": "If set, open tasks/checklists with this word or tag will be ignored, and not counted as open or closed. This is useful for situations where completing the item is outside your control.",
+      "type": "string",
+      "default": "#waiting",
+      "required": false
+    },
+    {
+      "key": "ignoreFolders",
+      "title": "Folders to ignore when finding linked items",
+      "description": "Comma-separated list of folder(s) to ignore when searching for open or closed tasks/checklists. This is useful where you are using sync'd lines in search results.",
+      "type": "[string]",
+      "default": [
+        "Saved Searches"
+      ],
+      "required": false
+    },
+    {
+      "key": "includeTaskContext",
+      "title": "Include context for tasks?",
+      "description": "Whether to show the note link for an open task or checklist",
+      "type": "bool",
+      "default": true,
+      "required": true
+    },
+    {
+      "key": "autoAddTrigger",
+      "title": "Add dashboard auto-update trigger when dashboard opened?",
+      "description": "Whether to add the auto-update trigger to the frontmatter to the current note when the dashboard is opened",
+      "type": "bool",
+      "default": false,
+      "required": true
+    },
+    {
+      "key": "excludeTasksWithTimeblocks",
+      "title": "Exclude tasks that include time blocks?",
+      "description": "Whether to stop display of open tasks that contain a time block",
+      "type": "bool",
+      "default": false,
+      "required": true
+    },
+    {
+      "key": "excludeChecklistsWithTimeblocks",
+      "title": "Exclude checklists that include time blocks?",
+      "description": "Whether to stop display of open checklists that contain a time block",
+      "type": "bool",
+      "default": false,
+      "required": true
+    },
+    {
+      "key": "includeFolderName",
+      "title": "Include folder name?",
+      "description": "Whether to include the folder name when showing a note link",
+      "type": "bool",
+      "default": true,
+      "required": true
+    },
+    {
+      "key": "tagToShow",
+      "title": "#tag/@mention to show",
+      "description": "If this is set as a #hashtag or @mention, then all open tasks that contain it are shown in a separate section. This is a good way to show all `#next` actions, for example. (It is limited hashtags and mentions for speed.)\nNote: this could show tasks duplicated from other sections.",
+      "type": "string",
+      "default": "",
+      "required": false
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "heading",
+      "title": "Debugging"
+    },
+    {
+      "key": "_logLevel",
+      "type": "string",
+      "title": "Log Level",
+      "choices": [
+        "DEBUG",
+        "INFO",
+        "WARN",
+        "ERROR",
+        "none"
+      ],
+      "description": "Set how much logging output will be displayed when executing Tidy commands in NotePlan Plugin Console Logs (NotePlan -> Help -> Plugin Console)\n\n - DEBUG: Show All Logs\n - INFO: Only Show Info, Warnings, and Errors\n - WARN: Only Show Errors or Warnings\n - ERROR: Only Show Errors\n - none: Don't show any logs",
+      "default": "INFO",
+      "required": true
+    },
+    {
+      "key": "triggerLogging",
+      "title": "Include extra trigger logs?",
+      "type": "bool",
+      "default": false,
+      "required": true
+    }
+  ]
+}

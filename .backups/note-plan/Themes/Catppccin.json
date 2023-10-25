@@ -1,0 +1,400 @@
+{
+  "name": "Catppuccin",
+  "style": "Dark",
+  "author": {
+    "name": "Arindo Duque",
+    "email": "arindo@wpultimo.com"
+  },
+  "editor": {
+    "backgroundColor": "#1e1e2e",
+    "altBackgroundColor": "#11111b",
+    "tintColor": "#f38ba8",
+    "tintColor2": "#f38ba8",
+    "textColor": "#a6adc8",
+    "toolbarBackgroundColor": "#11111b",
+    "toolbarIconColor": "#a6adc8",
+    "menuItemColor": "#cdd6f4",
+    "timeBlockColor": "#f5e0dc",
+    "shouldOverwriteFont": true
+  },
+  "styles": {
+    "body": {
+      "font": "AvenirNext-Regular",
+      "size": 16,
+      "color": "#a6adc8"
+    },
+    "title1": {
+      "color": "#cdd6f4",
+      "size": 28
+    },
+    "title2": {
+      "color": "#cdd6f4",
+      "size": 24
+    },
+    "title3": {
+      "color": "#bac2de",
+      "size": 20
+    },
+    "title-mark1": {
+      "color": "#45E1E3E2",
+      "size": 28,
+      "font": "AvenirNext-DemiBold"
+    },
+    "title-mark2": {
+      "color": "#45E1E3E2",
+      "size": 24,
+      "font": "AvenirNext-DemiBold"
+    },
+    "title-mark3": {
+      "color": "#45E1E3E2",
+      "size": 20,
+      "font": "AvenirNext-DemiBold"
+    },
+    "title4": {
+      "color": "#bac2de",
+      "size": 16
+    },
+    "title5": {
+      "regex": "^\\h*(##### )(.*)",
+      "matchPosition": 2,
+      "backgroundColor": "#313244",
+      "color": "#94e2d5",
+      "font": "Menlo-Regular",
+      "headIndent": 63,
+      "horizontalMargin": 10,
+      "size": 14,
+      "borderRadius": 6,
+      "leftBorderPadding": 10
+    },
+    "block-time-range": {
+      "regex": "([0-9][0-9]:[0-9][0-9] - [0-9][0-9]:[0-9][0-9])",
+      "color": "#f38ba8"
+    },
+    "title-mark4": {
+      "color": "#45E1E3E2",
+      "size": 18,
+      "font": "AvenirNext-DemiBold"
+    },
+    "title-mark5": {
+      "color": "#45E1E3E2",
+      "size": 16,
+      "paragraphSpacingBefore": 200,
+      "paragraphSpacing": 200,
+      "font": "AvenirNext-DemiBold"
+    },
+    "bold": {
+      "font": "AvenirNext-Bold"
+    },
+    "bold-left-mark": {
+      "color": "#45E1E3E2"
+    },
+    "bold-right-mark": {
+      "color": "#45E1E3E2"
+    },
+    "italic": {
+      "font": "AvenirNext-Italic",
+      "color": "#bac2de"
+    },
+    "italic-left-mark": {
+      "color": "#45E1E3E2"
+    },
+    "italic-right-mark": {
+      "color": "#45E1E3E2"
+    },
+    "boldItalic": {
+      "font": "AvenirNext-BoldItalic"
+    },
+    "boldItalic-left-mark": {
+      "color": "#45E1E3E2"
+    },
+    "boldItalic-right-mark": {
+      "color": "#45E1E3E2"
+    },
+    "code": {
+      "font": "Menlo-Regular",
+      "color": "#bac2de",
+      "backgroundColor": "#11111b",
+      "size": 14
+    },
+    "code-left-backtick": {
+      "color": "#a6adc8"
+    },
+    "code-right-backtick": {
+      "color": "#a6adc8"
+    },
+    "checked": {
+      "regex": "(^\\h*[\\*\\-]{1} |^\\h*[0-9]+[\\.\\)] )(\\[x\\] )(.*)",
+      "matchPosition": 0,
+      "color": "#a6e3a1",
+      "headIndent": 33
+    },
+    "checked-canceled": {
+      "regex": "(^\\h*[\\*\\-]{1} |^\\h*[0-9]+[\\.\\)] )(\\[\\-\\] )(.*)",
+      "matchPosition": 0,
+      "color": "#6c7086",
+      "headIndent": 33,
+      "strikethroughStyle": 1
+    },
+    "checked-scheduled": {
+      "regex": "(^\\h*[\\*\\-]{1} |^\\h*[0-9]+[\\.\\)] )(\\[\\>\\] )(.*)",
+      "matchPosition": 0,
+      "color": "#f9e2af",
+      "headIndent": 33
+    },
+    "todo": {
+      "font": "noteplanstate",
+      "color": "#f38ba8",
+      "headIndent": 33,
+      "size": 16
+    },
+    "strikethrough": {
+      "regex": "(^|[\\W_])(?:(?!\\1)|(?=^))((\\~|_)\\3)(?=\\S)(.*?\\S)(\\3\\3)(?!\\2)(?=[\\W_]|$)",
+      "matchPosition": 4,
+      "strikethroughStyle": 1,
+      "isRevealOnCursorRange": true,
+      "color": "#9399b2dd",
+      "strikethroughColor": "#9399b2"
+    },
+    "strikethrough-left-tilde": {
+      "regex": "(^|[\\W_])(?:(?!\\1)|(?=^))((\\~|_)\\3)(?=\\S)(.*?\\S)(\\3\\3)(?!\\2)(?=[\\W_]|$)",
+      "matchPosition": 2,
+      "isMarkdownCharacter": true,
+      "isHiddenWithoutCursor": true,
+      "isRevealOnCursorRange": true,
+      "color": "#44CBCCC6"
+    },
+    "strikethrough-right-tilde": {
+      "regex": "(^|[\\W_])(?:(?!\\1)|(?=^))(\\~|_)\\2(?=\\S)(.*?\\S)(\\2\\2)(?!\\2)(?=[\\W_]|$)",
+      "matchPosition": 4,
+      "isMarkdownCharacter": true,
+      "isHiddenWithoutCursor": true,
+      "isRevealOnCursorRange": true,
+      "color": "#44CBCCC6"
+    },
+    "underline": {
+      "regex": "(^|[\\W_])(?:(?!\\1)|(?=^))(\\~|_)(?=\\S)((?:(?!\\2).)*?\\S)(\\2)(?!\\2)(?=[\\W_]|$)",
+      "matchPosition": 3,
+      "font": "AvenirNext-Italic",
+      "isRevealOnCursorRange": true,
+      "underlineStyle": 2,
+      "underlineColor": "#f9e2af",
+      "color": "#f9e2af"
+    },
+    "md-link-left": {
+      "regex": "(\\[)([\\w\\s\\d]+)\\]\\((https?:\/\/(.+))\\)",
+      "matchPosition": 1,
+      "isMarkdownCharacter": true,
+      "isHiddenWithoutCursor": true,
+      "isRevealOnCursorRange": true,
+      "color": "#44CBCCC6"
+    },
+    "underline-left-tilde": {
+      "regex": "(^|[\\W_])(?:(?!\\1)|(?=^))(\\~|_)(?=\\S)((?:(?!\\2).)*?\\S)(\\2)(?!\\2)(?=[\\W_]|$)",
+      "matchPosition": 2,
+      "isMarkdownCharacter": true,
+      "isHiddenWithoutCursor": true,
+      "isRevealOnCursorRange": true,
+      "color": "#44CBCCC6"
+    },
+    "underline-right-tilde": {
+      "regex": "(^|[\\W_])(?:(?!\\1)|(?=^))(\\~|_)(?=\\S)((?:(?!\\2).)*?\\S)(\\2)(?!\\2)(?=[\\W_]|$)",
+      "matchPosition": 4,
+      "isMarkdownCharacter": true,
+      "isHiddenWithoutCursor": true,
+      "isRevealOnCursorRange": true,
+      "color": "#44CBCCC6"
+    },
+    "flagged-1-left-exclamation": {
+      "regex": "(.+?)(!important)",
+      "matchPosition": 2,
+      "backgroundColor": "#22D0021B",
+      "isHiddenWithoutCursor": true,
+      "isRevealOnCursorRange": true,
+      "headIndent": 33
+    },
+    "flagged-2-left-exclamation": {
+      "regex": "(.+?)(!urgent)",
+      "matchPosition": 2,
+      "backgroundColor": "#55D0021B",
+      "isHiddenWithoutCursor": true,
+      "isRevealOnCursorRange": true,
+      "headIndent": 33
+    },
+    "flagged-3-left-exclamation": {
+      "regex": "(.+?)(!critical)",
+      "matchPosition": 2,
+      "backgroundColor": "#AAD0021B",
+      "isHiddenWithoutCursor": true,
+      "isRevealOnCursorRange": true,
+      "headIndent": 33
+    },
+    "flagged-1": {
+      "regex": "(.+?)(!important)",
+      "matchPosition": 1,
+      "backgroundColor": "#22D0021B",
+      "headIndent": 33
+    },
+    "flagged-2": {
+      "regex": "(.+?)(!urgent)",
+      "matchPosition": 1,
+      "backgroundColor": "#55D0021B",
+      "headIndent": 33
+    },
+    "flagged-3": {
+      "regex": "(.+?)(!critical)",
+      "matchPosition": 1,
+      "backgroundColor": "#AAD0021B",
+      "color": "#fafafa",
+      "headIndent": 33
+    },
+    "highlighted": {
+      "regex": "(::)(.+?)(::)",
+      "matchPosition": 2,
+      "isRevealOnCursorRange": true,
+      "backgroundColor": "#313244"
+    },
+    "highlighted-left-colon": {
+      "regex": "(::)(.+?)(::)",
+      "matchPosition": 1,
+      "isMarkdownCharacter": true,
+      "isHiddenWithoutCursor": true,
+      "isRevealOnCursorRange": true,
+      "color": "#44CBCCC6"
+    },
+    "highlighted-right-colon": {
+      "regex": "(::)(.+?)(::)",
+      "matchPosition": 3,
+      "isMarkdownCharacter": true,
+      "isHiddenWithoutCursor": true,
+      "isRevealOnCursorRange": true,
+      "color": "#44CBCCC6"
+    },
+    "checked-todo-characters": {
+      "font": "noteplanstate",
+      "headIndent": 33,
+      "size": 16
+    },
+    "special-char": {
+      "font": "Menlo-Regular"
+    },
+    "tabbed": {
+      "headIndent": 43
+    },
+    "quote-mark": {
+      "color": "#a6adc8",
+      "font": "noteplanstate",
+      "headIndent": 33,
+      "size": 16
+    },
+    "quote-content": {
+      "color": "#a6adc8",
+      "type": "italic",
+      "headIndent": 33
+    },
+    "markdown-link": {
+      "color": "#D3DB90"
+    },
+    "markdown-link-url": {
+      "color": "#90E1E3E2"
+    },
+    "link": {
+      "regex": "((\\b([0-9a-zA-Z\\-\\.\\+]+):\\/\\/[^：\\s{}\\(\\)\\[<>±„\"“]+(?<![\\.,;!\"\\]\\*]))|[^：\\*\\s{}\\(\\)\\[<>±„\"“]+\\.(com|org|edu|gov|uk|net|in|co\\.in|co\\.uk|co|ca|de|jp|fr|au|us|ru|ch|it|nl|se|no|es|mil|ac|kr|an|aq|at|bb|bw|cd|cy|dz|ec|ee|eg|et|fi|gh|gl|gr|hk|ht|hu|ie|il|iq|is|kh|kg|kz|lr|lv|nz|pe|pa|ph|pk|pl|pt|sg|tw|ua|me)(([\\/%]+[^：\\s{}\\(\\)\\[<>±]*)(?<![\\.,;!\"\\]„\"“])|$|(?=[^a-zA-Z])))",
+      "matchPosition": 1,
+      "type": "link"
+    },
+    "NoteLinks": {
+      "isRevealOnCursorRange": false,
+      "isHiddenWithoutCursor": false,
+      "isMarkdownCharacter": false,
+      "matchPosition": 2,
+      "regex": "(\\[\\[)(.*?)(\\]\\])",
+      "color": "#6c7086"
+    },
+    "NoteLinks-left-brackets": {
+      "isRevealOnCursorRange": true,
+      "isHiddenWithoutCursor": true,
+      "isMarkdownCharacter": true,
+      "matchPosition": 1,
+      "regex": "(\\[\\[)(.*?)(\\]\\])",
+      "color": "#6c7086"
+    },
+    "NoteLinks-right-brackets": {
+      "isRevealOnCursorRange": true,
+      "isHiddenWithoutCursor": true,
+      "isMarkdownCharacter": true,
+      "matchPosition": 3,
+      "regex": "(\\[\\[)(.*?)(\\]\\])",
+      "color": "#6c7086"
+    },
+    "schedule-to-date-link": {
+      "color": "#f9e2af"
+    },
+    "done-date": {
+      "color": "#6c7086"
+    },
+    "schedule-from-date-link": {
+      "color": "#f9e2af"
+    },
+    "note-title-link": {
+      "color": "#f9e2af",
+      "isHiddenWithoutCursor": false,
+      "isRevealOnCursorRange": true
+    },
+    "hashtag": {
+      "color": "#f9e2af"
+    },
+    "attag": {
+      "color": "#f9e2af"
+    },
+    "phonenumber": {},
+    "chatwoot-link": {
+      "regex": "CW-(\\d+)",
+      "matchPosition": 0,
+      "urlPosition": 1,
+      "type": "noteLink",
+      "prefix": "https://support.delta.nextpress.co/app/accounts/1/conversations/"
+    },
+    "linear-ticket-link": {
+      "regex": "([A-Z][A-Z][A-Z][A-Z]?-\\d+)",
+      "matchPosition": 0,
+      "urlPosition": 0,
+      "type": "noteLink",
+      "prefix": "https://linear.app/nextpress/issue/"
+    },
+    "15min": {
+      "regex": "([À-ú\\w\\s-_\\,\\.\\@]+) (:15min)",
+      "matchPosition": 2,
+      "urlPosition": 1,
+      "type": "noteLink",
+      "prefix": "session:///start?duration=15&intent="
+    },
+    "1P": {
+      "regex": "([À-ú\\w\\s-_\\,\\.\\@]+) (:25min)",
+      "matchPosition": 2,
+      "urlPosition": 1,
+      "type": "noteLink",
+      "prefix": "session:///start?duration=25&intent="
+    },
+    "2P": {
+      "regex": "([À-ú\\w\\s-_\\,\\.\\@]+) (:50min)",
+      "matchPosition": 2,
+      "urlPosition": 1,
+      "type": "noteLink",
+      "prefix": "session:///start?duration=50&intent="
+    },
+    "3P": {
+      "regex": "([À-ú\\w\\s-_\\,\\.\\@]+) (:75min)",
+      "matchPosition": 2,
+      "urlPosition": 1,
+      "type": "noteLink",
+      "prefix": "session:///start?duration=75&intent="
+    },
+    "4P": {
+      "regex": "([À-ú\\w\\s-_\\,\\.\\@]+) (:100min)",
+      "matchPosition": 2,
+      "urlPosition": 1,
+      "type": "noteLink",
+      "prefix": "session:///start?duration=100&intent="
+    }
+  }
+}

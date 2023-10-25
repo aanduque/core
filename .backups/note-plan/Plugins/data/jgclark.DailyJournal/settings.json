@@ -1,0 +1,12 @@
+{
+  "templateTitle" : "Daily Note Template",
+  "moods" : "🤩 Great,🙂 Good,😇 Blessed,🥱 Tired,😫 Stressed,😤 Frustrated,😔 Low,🥵 Sick,Other",
+  "monthlyTemplateTitle" : "Monthly Note Template",
+  "reviewQuestions" : "@sleep(<int>)\n@work(<int>)\n@fruitveg(<int>)\nMood: <mood>\nGratitude: <string>\nGod was: <string>\nAlive: <string>\nNot Great: <string>\nLearn: <string>\nRemember: <string>",
+  "quarterlyReviewQuestions" : "Goals met: <string>\nNew goals identified: <string>\nProjects finished: <string>\nNew projects identified: <string>",
+  "yearlyReviewQuestions" : "Goals met: <string>\nNew goals identified: <string>\nProjects finished: <string>\nNew projects identified: <string>",
+  "reviewSectionHeading" : "Journal",
+  "weeklyTemplateTitle" : "Weekly Note Template",
+  "monthlyReviewQuestions" : "What's working well in processes: <string>\nProcesses that need work: <string>Personal Goals progress: <string>",
+  "weeklyReviewQuestions" : "Big win: <string>\nNew\/improved: <string>\nRegret: <string>\nFocus for next week: <string>"
+}

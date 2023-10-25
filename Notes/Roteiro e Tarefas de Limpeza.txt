@@ -1,0 +1,63 @@
+# Roteiro e Tarefas de Limpeza
+## 📍Roteiro de Execução
+O meu plano é focar a parte de execução baseado em alguns elementos em particular: as promessas feitas para os clientes, o app do my account, um demo simples, de todo, um demo mais complexo, do LinkTree, e as features mais avançadas do prime, como o Assistant, Marketplace, e o mais importante, o Connect.
+Vou começar listando esses *use cases*, para que em um segundo momento possamos expandi-los em suas respectivas árvores de pré-requisitos (enquanto pensava e escrevia, me dei conta que também tenho o demo de uma feature de backup, que é fácil de explicar para os usuários e mostrar num demo).
+Isso nos deixa com a seguinte lista de aplicações:
+1. My Account
+2. Feature de Backup
+3. Demo de Todo
+4. Demo do LinkTree
+O demo de Todo, para ser completamente sincero, tem mais valor interno do que qualquer coisa, já que ele me permite ter uma ideia bem completinha da parte do Studio em si e como tudo está funcionando.
+Meu ímpeto é de removê-lo da lista, mas acho que ele pode ajudar bastante na parte de garantir que as coisas funcionem no geral. Para além disso, isso me fez perceber que se eu quiser trabalhar simultaneamente em múltiplos apps ao mesmo tempo (trocando entre diferentes sessões), vou precisar de um mecanismo que me permita fazer isso sem danificar o trabalho sendo feito em outro site, o que implica nos seguintes pré-requisitos:
+- Para poder trabalhar em múltiplos "studios" ao mesmo tempo, sem que um influencie no outro, é necessário que:
+	- Seja simples criar um novo site como um studio app
+	- Exista uma hierarquia de workflows entre os workflows compartilhados entre toda a rede e os que existem apenas no app local, com os do app local tomando precedência sobre os que são compartilhados. Ou seja, ao criar um Workflow no studio, você precisa definir com que outros studios da rede esse workflow será compartilhado, ou se será algo global.
+> Nota: à medida em que eu for descobrindo itens, como acima, vou adicionando esses itens numa árvore de funcionalidades para cada entidade abaixo.
+
+---
+## Proto-documentation and Roadmap
+### Definitions
+#### Post Feature
+A post feature is extra functionality that we can attach to an existing custom post type, by utilizing the [`add_post_type_support` function](https://developer.wordpress.org/reference/functions/add_post_type_support/). WordPress registers and makes available a number of different features for post types this way. 
+You can also tell WordPress which features you want to add to a custom post type at the moment of registration of this post type via the `supports` array key of the `$args` parameters of the `register_post_type` function.
+Since we already have this handy system in place, WP Ultimo registers additional features to WordPress and make them available to be attached to both existing post types or types you've created using our own types module.
+*References:*
+- [Codex: add_post_type_support](https://developer.wordpress.org/reference/functions/add_post_type_support/)
+- [add additional references here]
+
+---
+## Projects
+### Shared Post Types
+This feature allows a registered post type to made available to every single subsite on the network. This is not to be confused with registering the post type on all the network - which happens by default -. It means that whenever entries are queried for a post that has the `shared` support, that query is redirected to the main site `posts` table, instead of the local one.
+This is useful when you need to have a single repository of a particular entity for all sub-sites in the network. As an example, Workflows are `shared` across the network.
+> Note: In the future, it might make sense to support selective sharing (.e.g. shared: 1,2,3), where a post type is shared among a set of selected sub-sites. For now, that is not supported.
+### 
+
+
+#### Shared Posts
+This is a ~Post Feature~
+
+
+## 🧹 Tarefas de Limpeza
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

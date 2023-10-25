@@ -1,0 +1,13 @@
+{
+  "foldersToExclude" : [
+    "\/",
+    "Summaries"
+  ],
+  "resultPrefix" : "- ",
+  "headingPrefix" : "Notes matching",
+  "matchWholeWords" : true,
+  "_logLevel" : "WARN",
+  "resultSortOrder" : "alphabetical",
+  "headingLevel" : 2,
+  "showEmptyOccurrences" : false
+}

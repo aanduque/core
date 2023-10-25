@@ -1,0 +1,44 @@
+{
+  "runPreset04" : {
+    "jsFunction" : "runPreset04",
+    "data" : "",
+    "isPreset" : true,
+    "name" : "",
+    "description" : "Switch Theme",
+    "hidden" : false
+  },
+  "runPreset01" : {
+    "jsFunction" : "runPreset01",
+    "data" : "",
+    "isPreset" : true,
+    "description" : "Switch Theme",
+    "name" : "",
+    "hidden" : false
+  },
+  "_logLevel" : "INFO",
+  "runPreset03" : {
+    "jsFunction" : "runPreset03",
+    "data" : "",
+    "isPreset" : true,
+    "name" : "",
+    "description" : "Switch Theme",
+    "hidden" : false
+  },
+  "addAutoRefreshFM" : true,
+  "runPreset05" : {
+    "jsFunction" : "runPreset05",
+    "data" : "",
+    "isPreset" : true,
+    "description" : "Switch Theme",
+    "name" : "",
+    "hidden" : false
+  },
+  "runPreset02" : {
+    "isPreset" : true,
+    "data" : "",
+    "hidden" : false,
+    "name" : "",
+    "jsFunction" : "runPreset02",
+    "description" : "Switch Theme"
+  }
+}

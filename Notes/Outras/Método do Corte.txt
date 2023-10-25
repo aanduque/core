@@ -1,0 +1,33 @@
+# Método do Corte
+
+#### 🧠 Dump
+- [x] Liste ~todas~ as tarefas que você acredita precisar realizar para o dia de hoje, por no máximo 15 minutos. :15min @done(2023-09-12 16:46)
+
+#### ⚙️ Processamento :15min
+- [x] Vá para o início da lista e comece a processar os itens, um por um. durante esse momento, o objetivo é agrupar tarefas similares em grupos, desmembrar tarefas que pareçam muito abstratas, etc. Esse processo deve durar, no máximo, 15 minutos @done(2023-09-12 17:08)
+
+#### ⚠️ Priorização :15min
+- [x] Com as tarefas agrupadas em blocos, pondere, com base nas necessidades reais do dia e dos objetivos da semana, quais blocos têm uma maior prioridade e precisarão ser protegidos. Reordene-os de acordo com esse parâmetro. Esse processo deve demorar no máximo 5 minutos. @done(2023-09-12 17:24)
+- [x] Uma vez que os blocos em si tenham sido reordenados, repita o mesmo processo para as tarefas internas à cada bloco. Esse processo deve durar 10 minutos, ou até que as tarefas dos 4 primeiros grupos tenham sido organizadas. @done(2023-09-12 17:24)
+
+#### 🔪 Corte 
+- [x] Pegue uma folha de papel e uma caneta. Com a caneta, escreva a data atual no topo da folha de papel. @done(2023-09-12 17:27)
+- [x] Abra cada um dos 3 primeiros grupos de tarefas e copie para a folha de papel - à mão - todas as tarefas à partir da quarta tarefa de cada grupo. Uma vez copiadas, ~apague essas tarefas da lista digital~. @done(2023-09-12 17:27)
+- [x] Depois, copie cada um dos grupos à partir do quarto grupo de tarefas para a mesma folha de papel. Uma vez copiados, ~remova esses grupos e sub-tarefas da lista digital~. @done(2023-09-12 17:30)
+- [x] Guarde a folha de papel em uma gaveta fisicamente distante, preferencialmente em outro cômodo. @done(2023-09-12 17:30)
+
+#### 💎 Fixação
+- [x] Defina a duração dos blocos de trabalho para cada ciclo de pomodoros. Nossa recomendação é que sejam realizados 4 ciclos, com as seguintes configurações de tempo em foco/pausa: 15/3, 25/5, 45/7 e 60/10. @done(2023-09-12 17:30)
+- [x] Aos 3 blocos principais que você deve ter em mãos, se seguiu corretamente os itens acima, adicione um quarto, chamado **Flex**. Esse bloco não deve ter nenhuma tarefa assinalada. Ele será usado para lidar com as coisas que surgem ao longo do dia e necessitam nossa atenção, ou para dedicar um pouco mais de tempo a alguma tarefa de um dos demais blocos. @done(2023-09-12 17:35)
+- [ ] Coloque cada bloco de trabalho, utilizando a funcionalidade de time-blocking, no seu calendário, com a hora de início, fim, além do nome. Também crie blocos (ou deixe espaços) para cada uma das pausas obrigatórias.
+- [ ] Faça uma pausa de 10 minutos.
+
+#### ✨Loop
+- [ ] Inicie um timer de 3 minutos
+- [ ] Crie um novo documento, nota, etc, e coloque o título dele como o nome da tarefa principal do primeiro grupo - geralmente a tarefa cuja qual as demais fazer parte. Logo abaixo, adicione o nome da primeira sub-tarefa dentro do grupo.
+- [ ] Logo abaixo, adicione a hora e descreva, com poucas palavras, como você pretende avançar com aquela tarefa durante a duração desse bloco. Escreva o que vier à cabeça até que os 3 minutos se esgotem. Tente estabelecer um objetivo único que seja alcançável no espaço de tempo do bloco em questão. Usaremos esses texto para refletir melhor sobre o desempenho ao final do bloco.
+- [ ] Comece um timer com a duração vigente do bloco de trabalho atual e comece a trabalhar na tarefa em questão, tendo em mente o que você descreveu como objetivo do bloco.
+- [ ] Ao fim do timer, comece imediatamente a pausa pela duração previamente estipulada para blocos do tamanho do que acabara de realizar. Não permaneça no computador durante a pausa.
+- [ ] Ao regressar da pausa, adicione a hora e coloque um timer de 2 minutos na mesma nota. Descreva o quão perto você chegou de alcançar o objetivo descrito antes do começo da execução, e o que poderia ter feito diferente para ser ainda mais efetivo.
+- [ ] Repita o processo para a primeira tarefa do próximo grupo, tendo em vista a auto-crítica que você acabou de realizar quando for descrever os objetivos da tarefa.
+

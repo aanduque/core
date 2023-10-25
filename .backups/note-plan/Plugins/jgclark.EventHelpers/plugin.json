@@ -1,0 +1,296 @@
+{
+  "noteplan.minAppVersion": "3.3.2",
+  "macOS.minVersion": "10.13.0",
+  "plugin.id": "jgclark.EventHelpers",
+  "plugin.name": "🕓 Event Helpers",
+  "plugin.description": "Commands to extend NotePlan's events handling, including calendar lists, time blocks, and date offset templating. See link for more details, and configuration.",
+  "plugin.icon": "",
+  "plugin.author": "jgclark",
+  "plugin.url": "https://github.com/NotePlan/plugins/tree/main/jgclark.EventHelpers",
+  "plugin.changelog": "https://github.com/NotePlan/plugins/tree/main/jgclark.EventHelpers/CHANGELOG.md",
+  "plugin.version": "0.20.3",
+  "plugin.lastUpdateInfo": "0.20.3: new 'STOPMATCHING' placeholder for '/insert matching events'.\n0.20.2: upper-case letters allowed in offsets.\n0.20.1: adds support for time blocks in Checklists (available from NP 3.8). 0.20.0: can now insert a 'MEETINGNOTE' link next to each item. Please read important note in the README file on how to enable it.\n0.19.4: can now include 'calendarSet' and 'calendarNameMappings' parameters when using event lists from Templates.\n0.19.3: de-dupes lists of attendees in event lists.",
+  "plugin.dependencies": [],
+  "plugin.script": "script.js",
+  "plugin.isRemote": "false",
+  "plugin.commands": [
+    {
+      "name": "time blocks to calendar",
+      "description": "promote time blocks to be full calendar events",
+      "jsFunction": "timeBlocksToCalendar"
+    },
+    {
+      "name": "insert day's events as list",
+      "description": "insert list of this day's calendar events at cursor",
+      "jsFunction": "insertDaysEvents"
+    },
+    {
+      "name": "insert matching events",
+      "description": "inserts this day's calendar events matching certain patterns at cursor",
+      "jsFunction": "insertMatchingDaysEvents"
+    },
+    {
+      "name": "process date offsets",
+      "alias": [
+        "offset"
+      ],
+      "description": "finds date offset patterns and turns them into due dates, based on date at start of section",
+      "jsFunction": "processDateOffsets"
+    },
+    {
+      "name": "shift dates",
+      "alias": [
+        "offset"
+      ],
+      "description": "takes dates in the selection and shifts them forwards or backwards by a given date interval",
+      "jsFunction": "shiftDates"
+    },
+    {
+      "name": "listDaysEvents",
+      "description": "function to list events for the current open Calendar note (for use in Templating)",
+      "hidden": true,
+      "jsFunction": "listDaysEvents"
+    },
+    {
+      "name": "listMatchingDaysEvents",
+      "description": "function to list events for the current open Calendar note that match string defined in the settings (for use in Templating)",
+      "hidden": true,
+      "jsFunction": "listMatchingDaysEvents"
+    },
+    {
+      "name": "test:eventsUpdateSettings",
+      "description": "update settings for Events Helpers",
+      "hidden": false,
+      "jsFunction": "onUpdateOrInstall"
+    }
+  ],
+  "plugin.settings": [
+    {
+      "type": "heading",
+      "title": "Settings for insert day's events as list"
+    },
+    {
+      "key": "eventsHeading",
+      "title": "Events heading",
+      "description": "Optional heading to put before list of the day's events (include any '#' heading markers)",
+      "type": "string",
+      "default": "## Events",
+      "required": false
+    },
+    {
+      "key": "formatEventsDisplay",
+      "title": "Events List display format",
+      "description": "The format string to use to customise how events are displayed (when run as a /command, not through a Template). The available placeholders are 'CAL', 'TITLE', 'EVENTLINK', 'DATE', 'START', 'END', 'NOTES', 'ATTENDEES', 'NOTES', 'URL', 'MEETINGNOTE'. Each placeholder needs to be wrapped by '*|...|*'.\n(Default is '- (*|CAL, |**|START|*) *|TITLE|**|\nEVENTLINK|**|\nwith ATTENDEES|**|\nNOTES|*'.)",
+      "type": "string",
+      "default": "### (*|CAL, |**|START|*) *|TITLE|**|\nEVENTLINK|**|\nwith ATTENDEES|**|\nNOTES|*",
+      "required": true
+    },
+    {
+      "key": "formatAllDayEventsDisplay",
+      "title": "Events List display format for all-day events",
+      "description": "The format string to use to customise how all-day events are displayed (when run as a /command, not through a Template). The available placeholders are 'CAL', 'TITLE', 'EVENTLINK', 'DATE', 'NOTES', 'ATTENDEES', 'NOTES', 'URL', 'MEETINGNOTE'. Each placeholder needs to be wrapped by '*|...|*'.\n(Default is '- (*|CAL, |**|START|*) *|TITLE|**|\nEVENTLINK|**|\nwith ATTENDEES|**|\nNOTES|*'.)",
+      "type": "string",
+      "default": "### (*|CAL|*) *|TITLE|**|\nEVENTLINK|**|\nNOTES|*",
+      "required": true
+    },
+    {
+      "key": "sortOrder",
+      "title": "Sort order of events list",
+      "description": "By 'time' or by 'calendar'",
+      "type": "string",
+      "choices": [
+        "time",
+        "calendar"
+      ],
+      "default": "time",
+      "required": true
+    },
+    {
+      "key": "calendarSet",
+      "title": "Calendars to include",
+      "description": "Comma-separated list of calendar names to filter by when showing list of events. If empty, no filtering will be done, and so all calendars will be included.",
+      "type": "[string]",
+      "default": [],
+      "required": false
+    },
+    {
+      "key": "calendarNameMappings",
+      "title": "Calendar name mappings",
+      "description": "Map a calendar name to a new string - e.g. 'Jonathan' -> 'J' with 'Jonathan;J'. Separating the two parts of a mapping with semicolons, and use commas between maps.",
+      "type": "[string]",
+      "default": [
+        "From;To"
+      ],
+      "required": false
+    },
+    {
+      "key": "meetingTemplateTitle",
+      "title": "Meeting Note Template title",
+      "description": "If set, this will be the title of the template used to create meeting notes. If not set, you'll be asked which Template (of type 'meeting-note') you'd like to use when run.",
+      "type": "string",
+      "required": false
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "heading",
+      "title": "Additional '/insert matching events' settings"
+    },
+    {
+      "key": "matchingEventsHeading",
+      "title": "Matching Events heading",
+      "description": "Optional heading to put before list of matched events (include any '#' heading markers)",
+      "type": "string",
+      "default": "## Matching Events",
+      "required": false
+    },
+    {
+      "key": "addMatchingEvents",
+      "title": "Events match list",
+      "description": "Match events with string on left, and then the string on the right is the template for how to insert this event.  The available placeholders are 'STOPMATCHING', 'CAL', 'TITLE', 'EVENTLINK', 'DATE', 'START', 'END', 'NOTES', 'ATTENDEES', 'NOTES', 'URL', 'MEETINGNOTE'. Each placeholder needs to be wrapped by '*|...|*'.\n(See README for details)",
+      "type": "json",
+      "default": "{\n\t\"meeting\": \"### *|TITLE|* (*|START|*)*|\\nwith ATTENDEES|**|\\nNOTES|*\",\n\t\"webinar\": \"### *|TITLE|* (*|START|*)*|\\nEVENTLINK|**|\\nNOTES|*\",\n\t\"gym\": \"*|TITLE|* (*|START|*)\\nHow did it go?\"\n,\n\t\"holiday\": \"*|TITLE|**|\\nNOTES|*\"\n}",
+      "required": true
+    },
+    {
+      "key": "stopMatching",
+      "title": "Stop after first match in the list above?",
+      "description": "Note: this doesn't stop matching the rest of the events in the Calendars, but it will mean only the first match above is used for a given event.",
+      "type": "bool",
+      "default": false,
+      "required": true
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "heading",
+      "title": "'/time blocks to calendar' settings"
+    },
+    {
+      "key": "includeCompletedTasks",
+      "title": "Include time blocks from completed tasks?",
+      "description": "Include time blocks from completed task and checklist lines?",
+      "type": "bool",
+      "default": true,
+      "required": true
+    },
+    {
+      "key": "calendarToWriteTo",
+      "title": "Name of Calendar to write to",
+      "description": "The calendar name to write events to. Must be a writable calendar. If empty, then the default system calendar will be used.",
+      "type": "string",
+      "default": "",
+      "required": false
+    },
+    {
+      "key": "defaultEventDuration",
+      "title": "Default event duration",
+      "description": "Event duration (in minutes) to use when making an event from a time block, if an end time is not given.",
+      "type": "number",
+      "default": 60,
+      "required": true
+    },
+    {
+      "key": "confirmEventCreation",
+      "title": "Confirm Event Creation?",
+      "description": "Whether to ask user to confirm each event to be created",
+      "type": "bool",
+      "default": false,
+      "required": true
+    },
+    {
+      "key": "removeTimeBlocksWhenProcessed",
+      "title": "Remove time blocks when processed?",
+      "description": "Whether to remove time block in a line after making an event from it",
+      "type": "bool",
+      "default": true,
+      "required": true
+    },
+    {
+      "key": "addEventID",
+      "title": "Add event link?",
+      "description": "Whether to add an event link in place of the time block, when creating an event from it",
+      "type": "bool",
+      "default": false,
+      "required": true
+    },
+    {
+      "key": "processedTagName",
+      "title": "Processed tag name",
+      "description": "(Optional) Tag to add on a line after making its time block an event",
+      "type": "string",
+      "default": "#event_created",
+      "required": false
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "heading",
+      "title": "'/shift dates' settings"
+    },
+    {
+      "key": "removeDoneDates",
+      "title": "Remove @done dates?",
+      "description": "Whether to remove @done(...) dates, if present, when shifting dates.",
+      "type": "bool",
+      "default": true,
+      "required": true
+    },
+    {
+      "key": "uncompleteTasks",
+      "title": "Set any completed tasks to not complete?",
+      "description": "Whether to change any completed tasks back to not complete.",
+      "type": "bool",
+      "default": true,
+      "required": true
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "heading",
+      "title": "Shared Settings"
+    },
+    {
+      "key": "locale",
+      "title": "Locale",
+      "description": "Optional 'Locale' to use for the date and times in events. If not given, will default to what the OS reports, or failing that, 'en-US'.",
+      "type": "string",
+      "default": "",
+      "required": false
+    },
+    {
+      "key": "timeOptions",
+      "title": "Time options",
+      "description": "Optional Time format settings",
+      "type": "json",
+      "default": "{\n\t\"hour\": \"2-digit\", \n\t\"minute\": \"2-digit\", \n\t\"hour12\": false\n}",
+      "required": false
+    },
+    {
+      "type": "separator"
+    },
+    {
+      "type": "heading",
+      "title": "Debugging"
+    },
+    {
+      "key": "_logLevel",
+      "title": "Log Level",
+      "description": "Set how much output will be displayed for this plugin the NotePlan > Help > Plugin Console. DEBUG is the most verbose; NONE is the least (silent)",
+      "type": "string",
+      "choices": [
+        "DEBUG",
+        "INFO",
+        "WARN",
+        "ERROR",
+        "none"
+      ],
+      "default": "WARN",
+      "required": true
+    }
+  ]
+}

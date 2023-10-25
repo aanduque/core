@@ -1,0 +1,9 @@
+# 🧠 Ideias
+
+Enquanto estava buscando exercícios para ansiedade, no entanto, acabei encontrando uma série de exercícios para ajudar com ela que acabei tendo uma ideia para um micro-saas: um app onde esses exercícios estejam disponíveis e sejam propostos de maneira randômica, para um momento de crise. Também poderíamos incluir outras funcionalidades como mood journal, diary, comunidade, etc, para usuários pagantes, no futuro. [[2023-09-22]]
+
+Na verdade, acho que o ideal é fazer um projeto real como um micro-saas real. A ideia inicial era de um micro-saas para documentação de projetos, para que possamos utilizá-lo para o próprio Ultimo, o Auroro, e outras ferramentas no futuro.
+- [x] Começar a delinear o projeto de um [[Micro-saas de Documentação]] ^371yvm @done(2023-09-28 17:16)
+
+Outra coisa que eu já venho pensando há algum tempo, é fazer um micro-saas clone do LinkTree, já que esse demonstraria completamente as qualidades do Next em um produto que é definitivamente mais em linha com os produtos que os nossos clientes desenvolvem, e o conceito de WaaS em geral. Seria um ótimo "stater" para colocar no #next/marketplace também.
+- [ ] Começar a delinear o projeto de um [[Clone do LinkTree]]

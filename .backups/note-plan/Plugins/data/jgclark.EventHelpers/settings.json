@@ -1,0 +1,37 @@
+{
+  "uncompleteTasks" : true,
+  "calendarToWriteTo" : "",
+  "confirmEventCreation" : false,
+  "formatAllDayEventsDisplay" : "### (*|CAL|*) *|TITLE|**|\nEVENTLINK|**|\nNOTES|*",
+  "calendarSet" : [
+
+  ],
+  "matchingEventsHeading" : "## Matching Events",
+  "formatEventsDisplay" : "### (*|CAL, |**|START|*) *|TITLE|**|\nEVENTLINK|**|\nwith ATTENDEES|**|\nNOTES|*",
+  "sortOrder" : "time",
+  "defaultEventDuration" : 60,
+  "removeTimeBlocksWhenProcessed" : true,
+  "locale" : "",
+  "_logLevel" : "WARN",
+  "includeCompletedTasks" : true,
+  "addEventID" : false,
+  "timeOptions" : {
+    "minute" : "2-digit",
+    "hour12" : false,
+    "hour" : "2-digit"
+  },
+  "calendarNameMappings" : [
+    "From;To"
+  ],
+  "eventsHeading" : "## Events",
+  "addMatchingEvents" : {
+    "holiday" : "*|TITLE|**|\nNOTES|*",
+    "webinar" : "### *|TITLE|* (*|START|*)*|\nEVENTLINK|**|\nNOTES|*",
+    "meeting" : "### *|TITLE|* (*|START|*)*|\nwith ATTENDEES|**|\nNOTES|*",
+    "gym" : "*|TITLE|* (*|START|*)\nHow did it go?"
+  },
+  "removeDoneDates" : true,
+  "processedTagName" : "#event_created",
+  "meetingTemplateTitle" : "",
+  "stopMatching" : false
+}

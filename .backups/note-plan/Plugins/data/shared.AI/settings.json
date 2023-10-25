@@ -1,0 +1,22 @@
+{
+  "continueChatText" : "Ask Follow-up Question",
+  "max_tokens" : 1000,
+  "bulletsSummaryParagraphs" : 3,
+  "numKeyTermsForFollowUp" : 5,
+  "summaryHeading" : "Summary",
+  "bulletsAIKeyTerms" : 5,
+  "defaultModel" : "gpt-3.5-turbo",
+  "userApprovedSummaryWarning" : false,
+  "_logLevel" : "INFO",
+  "outputAttribution" : true,
+  "initialChatSystemPrompt" : "You are a helpful assistant. Please answer in English.",
+  "highlightKeyTerms" : false,
+  "apiKey" : "",
+  "researchPrompt" : "Please provide a summary of {{subject}} in the following format:\nList the top {{n}} key concepts associated with the subject and write a summary of the concept as it pertains to the subject in the following Markdown format.\nEach concept should include a Wikipedia link.\nThe further reading links should be from Goodreads.com.\nThe first heading should be '# ${{subject}}'.\nThe second heading should be '## Key Concepts'.\nFor each Key Concept, the heading should be '### [key concept in brackets](Wikipedia link)' followed by a brief summary.\nThe fourth heading should be '#### Further Reading' followed by a Goodreads.com link for a recommended book on the topic.",
+  "summaryPrompt" : "Create a summary of the following text",
+  "pluginID" : "shared.AI",
+  "saveResponses" : false,
+  "numRelatedTerms" : 5,
+  "showStats" : false,
+  "researchDirectory" : "Research"
+}

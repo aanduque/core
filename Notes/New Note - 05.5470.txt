@@ -1,0 +1,12 @@
+# Assistant Server
+
+## Simplificar a API
+Minha ideia para simplificar a API é simples:
+- Reduzir o número de endpoints
+- Liberar para o cliente apenas o que ele precisa saber de fato
+
+Como eu faria isso? Minha ideia é utilizar a seguinte arquitetura:
+- GET /chats: Retorna todos os chats do usuários
+- POST /chats: Cria um novo post. Esse post incluir os seguintes links:
+	- GET /chats/{id}/messages: Retorna todas as mensagens do chat
+	- POST /chats/{id}/messages: Envia uma nova mensagem para o chat
